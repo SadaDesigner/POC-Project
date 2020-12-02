@@ -1,14 +1,28 @@
+<div class="row" *ngIf="showBulkActions">
+  <div class="col">
+    <div class="btn-group pb-2">
+      <button class="btn btn-sm btn-outline-secondary">Edit</button>
+      <button class="btn btn-sm btn-outline-secondary">Delete</button>
+    </div>
+  </div>
+</div>
+
 <table class="table table-striped table-bordered">
     <tbody>
         <tr>
+          <th class="text-center"> <input type="checkbox"></th>
+         
             <th>S.no</th>
             <th>Title</th>
             <th>Status</th>
         </tr>
       <tr *ngFor="let todo of todolist">
+        <td class="text-center">  <input (change)="checBoxClick($event, todo)" type="checkbox"></td>
         <td>{{todo.id}}</td>
         <td>{{todo.title}}</td>
         <td><div class="badge" [ngClass]="todo.completed ? 'badge-success':'badge-warning'">{{todo.completed ? 'completed' : 'incomplete'}}</div></td>
       </tr>
     </tbody>
   </table>
+
+  <h6>You Have Selected {{selectedList.length}} Items</h6>

@@ -13,6 +13,17 @@ export class DashboardComponent implements OnInit {
 
   todolist:any = [];
 
+  showBulkActions:boolean = false;
+  selectedList:any = [];
+
+
+  checBoxClick(e, To) {
+    this.selectedList.push(To)
+    
+   if(this.selectedList.length > 1 ) {
+    this.showBulkActions = true;
+   }
+  }
   ngOnInit() {
     this.dataservice.getdata().subscribe(data => this.todolist = data);
 
