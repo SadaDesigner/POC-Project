@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -8,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class AdminComponent implements OnInit {
 
   constructor() { }
+
+  employeeFormSubmit(v:NgForm) {
+    console.log(v)
+  }
 
   ngOnInit(): void {
   }

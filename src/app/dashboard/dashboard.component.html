@@ -18,7 +18,7 @@
             <th>Status</th>
         </tr>
       <tr *ngFor="let todo of todolist">
-        <td class="text-center">  <input (change)="checBoxClick($event, todo.id, todo)" type="checkbox"></td>
+        <td class="text-center">  <input (change)="checBoxClick($event, todo.id, todo.title)" type="checkbox"></td>
         <td>{{todo.id}}</td>
         <td>{{todo.title}}</td>
         <td><div class="badge" [ngClass]="todo.completed ? 'badge-success':'badge-warning'">{{todo.completed ? 'completed' : 'incomplete'}}</div></td>

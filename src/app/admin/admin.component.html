@@ -1,1 +1,41 @@
 <p>admin works!</p>
+
+
+<form #addEmployee="ngForm" (ngSubmit)="employeeFormSubmit(addEmployee.value)">
+
+<div class="row">
+    <div class="col-4">
+        <div class="form-group">
+            <label for="">Title</label>
+            <input type="text" class="form-control" name="title" ngModel>
+        </div>
+
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" class="form-control" name="name" ngModel>
+        </div>
+
+        <div class="form-group">
+            <label class="w-100" for="">Completed </label>
+            <input ngModel value="complete" name="complete" type="radio"><label for="" class="mr-3">Complete</label>
+            <input ngModel value="incomplete" name="incomplete" type="radio"><label for="">Incomplete</label>
+        </div>
+
+        <div class="form-group">
+            <label class="w-100" for="">Designation </label>
+             <select ngModel name="designation" id="" class="form-control">
+                 <option value="ui designer">UI Designer</option>
+                 <option value="ui developer">UI Developer</option>
+                 <option value="full stack developer">Full Stack Developer</option>
+                 <option value="product manager">Product Manager</option>
+             </select>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

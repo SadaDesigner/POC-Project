@@ -17,20 +17,30 @@ export class DashboardComponent implements OnInit {
   selectedTitle:string;
   titleList:any = [];
 
-  checBoxClick(e, id) {
+  checBoxClick(e, id, title) {
  
       // check items and push to selected list
       if (e.target.checked) {
 
         //console.log(id + 'checked');
         this.selectedList.push(id);
-        this.selectedTitle = this.todolist[id - 1].title;
-        this.titleList.push(this.selectedTitle);
+        //this.selectedTitle = title;
+        this.titleList.push(title);
+
+        console.log(this.selectedList);
+        console.log(this.titleList);
 
       } else {
+        debugger;
         //console.log(id + 'unchecked');
-        this.selectedList = this.selectedList.filter((m) => m != id);
-        //this.titleList = this.titleList.filter((m) => !this.selectedTitle);
+  
+       this.selectedList = this.selectedList.filter((m) => m != id);
+        this.titleList = this.titleList.filter((b) => b !=title);
+
+
+        console.log(this.selectedList);
+        console.log(this.titleList);
+        
       }
 
      // console.log(this.todolist[id - 1].title);
