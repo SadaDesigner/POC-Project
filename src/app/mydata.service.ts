@@ -7,10 +7,17 @@ import { HttpClient } from '@angular/common/http';
 export class MydataService {
 
   constructor(private http:HttpClient) { }
+
+  todolist: any = [];
   url:any = "https://jsonplaceholder.typicode.com/todos"
   mydata:any = []
   getdata() {
     return this.http.get(this.url);
+  }
+
+  removedata(id) {
+    debugger;
+      return this.http.delete(this.url + '/' + id)
   }
 
 

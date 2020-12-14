@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MydataService } from '../mydata.service';
+import { AdminComponent } from '../admin/admin.component'
 
 
 @Component({
@@ -8,9 +9,11 @@ import { MydataService } from '../mydata.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private dataservice: MydataService) {}
+  constructor(public dataservice: MydataService) {}
 
-  todolist: any = [];
+  @ViewChild(AdminComponent)  admincomp:AdminComponent;
+
+  
 
   showBulkActions: boolean = false;
   selectedList: any = [];
@@ -55,10 +58,21 @@ export class DashboardComponent implements OnInit {
       }
   }
 
+  deletedata(id) {
+    this.dataservice.removedata(id).subscribe((mydata) => {console.log(mydata)})
+  }
+
   ngOnInit() {
     //this.dataservice.getdata().subscribe(data => this.todolist = data);
     this.dataservice.getdata().subscribe((data) => {
-      this.todolist = data;
+      
+      this.dataservice.todolist = data;
+
+   
     });
+    
+
+
+   
   }
 }

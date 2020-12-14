@@ -16,19 +16,24 @@
             <th>S.no</th>
             <th>Title</th>
             <th>Status</th>
+            <th>Actions</th>
         </tr>
-      <tr *ngFor="let todo of todolist">
+      <tr *ngFor="let todo of dataservice.todolist">
         <td class="text-center">  <input (change)="checBoxClick($event, todo.id, todo.title)" type="checkbox"></td>
         <td>{{todo.id}}</td>
         <td>{{todo.title}}</td>
         <td><div class="badge" [ngClass]="todo.completed ? 'badge-success':'badge-warning'">{{todo.completed ? 'completed' : 'incomplete'}}</div></td>
+        <td><button class="btn btn-info btn-sm mr-1">Edit</button> <button (click)="deletedata(todo.id)" class="btn btn-danger btn-sm">Delete</button></td>
       </tr>
     </tbody>
-  </table>
+  </table>)
 </div>
+
 
 
   <h6>You Have Selected {{selectedList.length}} Items</h6>
 <ul class="pl-0">
   <li *ngFor="let title of titleList" class="badge badge-pill badge-light p-3 mr-2 border">{{title}}</li>
 </ul>
+
+

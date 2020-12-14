@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MydataService } from '../mydata.service';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -8,13 +9,21 @@ import {NgForm} from '@angular/forms';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dataservice:MydataService) { }
+  mydata:any;
+  mydatalist:[] = [];
+  pos:boolean = true;
+ neg:boolean = false;
 
   employeeFormSubmit(v:NgForm) {
-    console.log(v)
+   this.dataservice.todolist.push(v)
+   console.log(this.dataservice.todolist)
+       
   }
 
   ngOnInit(): void {
+
+    
   }
 
 }
