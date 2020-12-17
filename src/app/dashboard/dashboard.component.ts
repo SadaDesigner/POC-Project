@@ -78,7 +78,8 @@ export class DashboardComponent implements OnInit {
 
 
   editItem() {
-    return console.log(this.admincomp.isEdit)
+    this.isEdit = true;
+   // this.admincomp.isEdit = true;
   }
 
   

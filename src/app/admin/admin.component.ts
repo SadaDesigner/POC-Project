@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { MydataService } from '../mydata.service';
 import {NgForm} from '@angular/forms';
+import { DashboardComponent } from '../dashboard/dashboard.component'
+import { VirtualTimeScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-admin',
@@ -10,6 +12,8 @@ import {NgForm} from '@angular/forms';
 export class AdminComponent implements OnInit {
 
   constructor(public dataservice:MydataService) { }
+
+  @ViewChild('dashboard') dashboardcomp:DashboardComponent; 
   mydata:any;
   mydatalist:[] = [];
   pos:boolean = true;
@@ -18,10 +22,11 @@ export class AdminComponent implements OnInit {
 
   employeeFormSubmit(v:NgForm) {
    this.dataservice.todolist.push(v)
-   console.log(this.dataservice.todolist)
+   console.log(this.dataservice.todolist);
+
+
        
   }
-
 
 
   ngOnInit(): void {

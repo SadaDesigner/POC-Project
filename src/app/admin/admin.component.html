@@ -31,7 +31,8 @@
 
         <div class="row">
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" *ngIf="!isEdit">Submit</button>
+                <button type="submit" class="btn btn-primary" *ngIf="isEdit">Update</button>
             </div>
         </div>
     </div>
