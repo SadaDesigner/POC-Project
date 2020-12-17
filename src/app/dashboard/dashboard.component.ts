@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { MydataService } from '../mydata.service';
-import { AdminComponent } from '../admin/admin.component'
+import { AdminComponent } from '../admin/admin.component';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -11,14 +12,12 @@ import { AdminComponent } from '../admin/admin.component'
 export class DashboardComponent implements OnInit {
   constructor(public dataservice: MydataService) {}
 
-  @ViewChild(AdminComponent)  admincomp:AdminComponent;
-
-  
-
+  @ViewChild('admin') admincomp:AdminComponent; 
   showBulkActions: boolean = false;
   selectedList: any = [];
   selectedTitle:string;
   titleList:any = [];
+  isEdit:boolean = false;
 
   checBoxClick(e, id, title) {
  
@@ -58,18 +57,44 @@ export class DashboardComponent implements OnInit {
       }
   }
 
-  deletedata(id) {
-    this.dataservice.removedata(id).subscribe((mydata) => {console.log(mydata)})
+  deleteItem(tid) {
+
+    let deleteConfirm = confirm('would you like to delete this item') 
+
+    if(deleteConfirm == true) {
+      this.dataservice.removedata(tid).subscribe(
+        () => {console.log(this.dataservice.todolist)},
+        (error) => {console.log('file not deleted', error)},
+        () => {console.log('data deleted successfully')}
+        )
+    }
+
+    else {
+      return;
+    }
+   
+  
   }
 
+
+  editItem() {
+    return console.log(this.admincomp.isEdit)
+  }
+
+  
+ 
   ngOnInit() {
     //this.dataservice.getdata().subscribe(data => this.todolist = data);
-    this.dataservice.getdata().subscribe((data) => {
-      
+    this.dataservice.getdata().subscribe(data => {
       this.dataservice.todolist = data;
+        },
+        (err) => console.log('error', err),
 
-   
-    });
+        () =>  console.log('fetch data msg is success')
+        );
+
+
+      
     
 
 

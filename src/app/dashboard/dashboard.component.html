@@ -23,10 +23,10 @@
         <td>{{todo.id}}</td>
         <td>{{todo.title}}</td>
         <td><div class="badge" [ngClass]="todo.completed ? 'badge-success':'badge-warning'">{{todo.completed ? 'completed' : 'incomplete'}}</div></td>
-        <td><button class="btn btn-info btn-sm mr-1">Edit</button> <button (click)="deletedata(todo.id)" class="btn btn-danger btn-sm">Delete</button></td>
+        <td><button (click)="editItem()" class="btn btn-info btn-sm mr-1">Edit</button> <button (click)="deleteItem(todo.id)" class="btn btn-danger btn-sm">Delete</button></td>
       </tr>
     </tbody>
-  </table>)
+  </table>
 </div>
 
 
@@ -35,5 +35,8 @@
 <ul class="pl-0">
   <li *ngFor="let title of titleList" class="badge badge-pill badge-light p-3 mr-2 border">{{title}}</li>
 </ul>
+<div *ngIf="isEdit">
+<app-admin></app-admin>
+</div>
 
 

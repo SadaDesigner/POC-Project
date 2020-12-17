@@ -14,12 +14,15 @@ export class AdminComponent implements OnInit {
   mydatalist:[] = [];
   pos:boolean = true;
  neg:boolean = false;
+ isEdit:boolean = false;
 
   employeeFormSubmit(v:NgForm) {
    this.dataservice.todolist.push(v)
    console.log(this.dataservice.todolist)
        
   }
+
+
 
   ngOnInit(): void {
 

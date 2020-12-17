@@ -9,15 +9,14 @@ export class MydataService {
   constructor(private http:HttpClient) { }
 
   todolist: any = [];
-  url:any = "https://jsonplaceholder.typicode.com/todos"
+  url:any = "https://jsonplaceholder.typicode.com/posts"
   mydata:any = []
   getdata() {
     return this.http.get(this.url);
   }
 
   removedata(id) {
-    debugger;
-      return this.http.delete(this.url + '/' + id)
+      return this.http.delete(`${this.url}/${id}`);
   }
 
 
