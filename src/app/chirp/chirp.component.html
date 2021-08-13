@@ -1,0 +1,29 @@
+<div class="input-group mb-3">
+    <input [(ngModel)]="searchAirport" type="text" class="form-control" placeholder="Search Airport" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <div class="input-group-append">
+      <button (click)="getairportdata()" class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+    </div>
+  </div>
+
+
+  <div class="col-12">
+      <div class="card" *ngFor="let airport of airportList.cityairports">
+       
+            <div class="card-header">{{airport.citydetails.cityname}}</div>
+
+            <div class="card-body">{{airport.citydetails.citycd}}
+              <div>
+              <label for="">Statecd: {{airport.citydetails.statecd}}</label>
+              </div>
+
+              <div>
+              <label for="">countrycd: {{airport.citydetails.countrycd}}</label>
+              </div>
+              <div>
+              <label for="">countryname: {{airport.citydetails.countryname}}</label>
+              </div>
+              <div>
+            </div>
+        
+      </div>
+  </div>

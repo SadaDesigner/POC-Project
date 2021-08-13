@@ -1,1 +1,20 @@
-<p>settings works!</p>
+
+<div class="container">
+  <div class="row">
+  <div class="col-6">
+    <h3>Api call with search </h3>
+    <div class="form-group d-flex">
+      <input class="form-control col-6" type="text"[(ngModel)]="searchString">   <button class="btn btn-primary" (click)="getdata()">search</button>
+    </div>
+
+  <ul class="list-group flex-wrap flex-row">
+    <li *ngFor="let li of listResults.items" class="card" style="width: 120px;
+    padding: 10px; margin-bottom: 10px; margin-right: 10px;"><img [src]="li.owner.avatar_url" width="100" class="rounded" alt=""></li>
+  </ul>
+  </div>
+  <div class="col-6">
+    <h3>Custom directive</h3>
+    <div appSadaDirective>this color is coming from custom directive</div>
+  </div>
+</div>
+</div>

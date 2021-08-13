@@ -82,6 +82,21 @@ export class DashboardComponent implements OnInit {
    // this.admincomp.isEdit = true;
   }
 
+  showDiv: boolean = false;
+
+  showDivOne: boolean = false;
+
+  showElement(ab) {
+    if(ab=='one') {
+      this.showDiv = !this.showDiv;
+    }
+    else {
+      this.showDivOne = !this.showDivOne;
+    }
+
+  }
+  
+
   
  
   ngOnInit() {

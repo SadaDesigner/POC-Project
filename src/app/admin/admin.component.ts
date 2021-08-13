@@ -17,8 +17,8 @@ export class AdminComponent implements OnInit {
   mydata:any;
   mydatalist:[] = [];
   pos:boolean = true;
- neg:boolean = false;
- isEdit:boolean = false;
+  neg:boolean = false;
+  isEdit:boolean = false;
 
   employeeFormSubmit(v:NgForm) {
    this.dataservice.todolist.push(v)

@@ -8,6 +8,8 @@ import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AdminComponent } from './admin/admin.component';
+import { SadaDirectiveDirective } from './sada-directive.directive';
+import { ChirpComponent } from './chirp/chirp.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { AdminComponent } from './admin/admin.component';
     DashboardComponent,
     SettingsComponent,
     AdminComponent,
+    SadaDirectiveDirective,
+    ChirpComponent,
     
   ],
   imports: [

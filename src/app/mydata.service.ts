@@ -11,6 +11,8 @@ export class MydataService {
   todolist: any = [];
   url:any = "https://jsonplaceholder.typicode.com/posts"
   mydata:any = []
+
+
   getdata() {
     return this.http.get(this.url);
   }
@@ -18,6 +20,8 @@ export class MydataService {
   removedata(id) {
       return this.http.delete(`${this.url}/${id}`);
   }
+
+
 
 
 }
