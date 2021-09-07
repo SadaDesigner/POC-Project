@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 import { MydataService } from '../mydata.service';
 import { AdminComponent } from '../admin/admin.component';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { interval } from 'rxjs';
 
 
 @Component({
@@ -10,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(public dataservice: MydataService) {}
+  constructor(public dataservice: MydataService, private route: Router) {}
 
   @ViewChild('admin') admincomp:AdminComponent; 
   showBulkActions: boolean = false;
@@ -83,28 +85,31 @@ export class DashboardComponent implements OnInit {
   }
 
   showDiv: boolean = false;
-
+  searchTextBox: any;
   showDivOne: boolean = false;
+  errmsg: boolean = false;
 
-  showElement(ab) {
-    if(ab=='one') {
-      this.showDiv = !this.showDiv;
-    }
-    else {
-      this.showDivOne = !this.showDivOne;
-    }
+  
 
+
+  employeedetails: any = {
+    name:'sadashiv', age:32, role: 'uideveloper'
   }
-  
-
-  
+  // gotoquery() {
+  //   this.route.navigate(['/dashboard/postdetails', 5, 'sadashiv'], {queryParams: this.employeedetails})
+  // }
  
   ngOnInit() {
+   
     //this.dataservice.getdata().subscribe(data => this.todolist = data);
     this.dataservice.getdata().subscribe(data => {
       this.dataservice.todolist = data;
         },
-        (err) => console.log('error', err),
+        (err) => { console.log('error', err) 
+        if(err.name == "HttpErrorResponse") {
+          this.errmsg = true;
+        }
+      },
 
         () =>  console.log('fetch data msg is success')
         );

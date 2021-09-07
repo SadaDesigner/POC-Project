@@ -1,0 +1,20 @@
+<p>post-details works!</p>
+
+<!-- <div>{{detailtodo.title}}</div> -->
+
+<ul class="list-group">
+    <li class="list-group-item">{{detailtodo.title}}</li>
+    <li class="list-group-item">{{detailtodo.body}}</li>
+
+</ul>
+<ng-container *ngIf="myquery">
+    <h5 class="mt-3">got this object from dashboard with query parameters</h5>
+    <ul class="list-group">
+        <li class="list-group-item">{{myquery.name}}</li>
+        <li class="list-group-item">{{myquery.age}}</li>
+        <li class="list-group-item">{{myquery.role}}</li>
+
+    </ul>
+</ng-container>
+
+

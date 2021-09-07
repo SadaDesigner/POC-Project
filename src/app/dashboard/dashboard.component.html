@@ -8,6 +8,10 @@
   </div>
 </div>
 
+<input type="text" [(ngModel)]="searchTextBox">
+
+{{searchTextBox}}
+
 <div class="table-responsive grid-scroll">
   <table class="table table-striped table-bordered">
     <tbody>
@@ -22,13 +26,15 @@
       <tr *ngFor="let todo of dataservice.todolist">
         <td class="text-center">  <input (change)="checBoxClick($event, todo.id, todo.title)" type="checkbox"></td>
         <td>{{todo.id}}</td>
-        <td>{{todo.title}}</td>
+        <td><a href="javascript:void" routerLink="postdetails/{{todo.id}}">{{todo.title}}</a></td>
         <td><div class="badge" [ngClass]="todo.completed ? 'badge-success':'badge-warning'">{{todo.completed ? 'completed' : 'incomplete'}}</div></td>
         <td><button (click)="editItem()" class="btn btn-info btn-sm mr-1">Edit</button> <button (click)="deleteItem(todo.id)" class="btn btn-danger btn-sm">Delete</button></td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<div *ngIf="errmsg"> Please check your network connection</div>
 
 
 
@@ -42,18 +48,14 @@
 
 <div class="d-flex">
 
-  <button (click)="showElement('one')">click</button>
   <div *ngIf="showDiv" class="box">
     sada
   </div>
 
 
 
-  <button (click)="showElement('two')">click two</button>
-  <div *ngIf="showDivOne" class="box">
-    sada
-  </div>
+ 
 
 </div>
 
-
+<button class="btn btn-primary" routerLink="postdetails/4" [queryParams]="employeedetails">goto details</button>

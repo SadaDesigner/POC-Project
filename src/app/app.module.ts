@@ -10,6 +10,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { AdminComponent } from './admin/admin.component';
 import { SadaDirectiveDirective } from './sada-directive.directive';
 import { ChirpComponent } from './chirp/chirp.component';
+import { PostDetailsComponent } from './dashboard/post-details/post-details.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { ChirpComponent } from './chirp/chirp.component';
     AdminComponent,
     SadaDirectiveDirective,
     ChirpComponent,
+    PostDetailsComponent,
+    NotfoundComponent,
     
   ],
   imports: [
@@ -27,7 +31,6 @@ import { ChirpComponent } from './chirp/chirp.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule
-  
   ],
   providers: [],
   bootstrap: [AppComponent]

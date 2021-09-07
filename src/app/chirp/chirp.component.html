@@ -5,6 +5,8 @@
     </div>
   </div>
 
+ 
+
 
   <div class="col-12">
       <div class="card" *ngFor="let airport of airportList.cityairports">
@@ -26,4 +28,26 @@
             </div>
         
       </div>
+
+      <h5 class="pl-3">Other Airport Details</h5>
+
+      <div class="card" *ngFor="let air of airport.airportdetails">
+        <div class="card-body d-flex justify-content-between">
+          <label for=""><strong>airportcd:</strong> {{air.airportcd}}</label>
+          <label for=""><strong>airportname:</strong> {{air.airportname}}</label>
+          <label for=""><strong>country cd:</strong> {{air.countrycd}}</label>
+          <label for=""><strong>isnearbyairport</strong> : {{air.isnearbyairport}}</label>
+          <label for=""><strong>jetscount:</strong> <span class="badge badge-primary">{{air.jetscount}}</span>  </label>
+          
+        </div>
+        
+      </div>
+
+
+
+      </div>
+
+
+
+
   </div>

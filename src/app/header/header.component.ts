@@ -10,6 +10,16 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
+  username: string = "";
+
+
+  getusername() {
+
+  
+  this.username = prompt('enter username')
+
+  }
+
   ngOnInit(): void {
   }
 

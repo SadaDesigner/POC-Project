@@ -10,6 +10,7 @@ export class ChirpComponent implements OnInit {
 
   searchAirport:string;
   airportList: any = [];
+ 
   constructor(private http:HttpClient) { }
 
 

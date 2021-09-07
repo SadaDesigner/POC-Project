@@ -21,7 +21,7 @@ export class MydataService {
       return this.http.delete(`${this.url}/${id}`);
   }
 
-
+  
 
 
 }
