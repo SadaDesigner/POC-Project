@@ -42,3 +42,35 @@
 
 
 {{myname}}
+
+
+
+<h3>Custom Observbles</h3>
+
+
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-primary" (click)=startCount()>count start</button>
+    </div>
+   
+    <div class="col-12">
+       <h2>{{response}}</h2> 
+       <label for="" class="text-danger" *ngIf="showerror">{{error}}</label>
+       <label *ngIf="showtimeup" for="" class="text-success">{{timeup}}</label>
+       <div class="col-12">
+        <label for="">Enter the number to Stop</label>
+        <input type="number" size="100" class="col-md-1" [(ngModel)]="digit">
+        <button class="btn btn-danger" (click)="resetCount()">Reset</button>
+       
+       
+       </div>
+      
+      
+    </div>
+
+    
+</div>
+
+
+
+

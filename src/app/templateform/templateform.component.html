@@ -1,0 +1,133 @@
+
+
+<p>
+    1. first normal template-form
+    to convert it into template driven add name and ngModel
+
+    2. special method need to write in form (ngSubmit)
+    3. onchange update will autocapture without sending submit button if we use viewchild element instead of paramenters sending
+    
+</p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+          
+
+            <div class="form-group d-flex justify-content-end align-items-center">
+                <label for="" class="mr-2">Select Existing</label>
+                <select [(ngModel)]="id" class="form-control col-md-3 mr-2" name="" id="">
+                    <option value="0">Sadashiv</option>
+                    <option value="1">Sarika</option>
+                    <option value="2">Shanvika</option>
+                </select>
+                <button (click)="prefill(id)" class="btn btn-success">Add</button>
+             
+            </div>
+            <form action="" (ngSubmit)="formSubmit()" #myform="ngForm">
+                <div class="form-group">
+                    <label for="">User name <span class="text-danger">*</span> </label>
+                    <input class="form-control" type="text" id="username" name="username" ngModel required>
+                    <span class="text-danger" *ngIf="!myform.controls.username.valid && myform.controls.username.touched">Please enter the field</span>
+                </div>
+
+             
+
+                <div class="form-group">
+                    <label for="">Email <span class="text-danger">*</span></label>
+                    <input  class="form-control" type="text" id="email" name="email" required email ngModel (input)="updateinput()">
+                    <span class="text-danger" *ngIf="!myform.controls.email.valid && myform.controls.email.touched">Please enter the field</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Gender <span class="text-danger">*</span></label>
+                    <select #gender="ngModel" class="form-control" name="gender" ngModel id="gender" required>   
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <span class="text-danger" *ngIf="!gender.valid && gender.touched">Please enter the field</span>
+                      
+                </div>
+           
+
+
+                <div class="mt-2">
+                    <button type="submit" class="btn btn-success mr-3" [disabled]="!myform.valid">Submit</button>
+                    <button (click)="resetForm()" class="btn btn-info" [disabled]="!myform.valid">Reset</button>
+ 
+                </div>
+            </form>
+
+
+
+            <div *ngIf="formSubmitted">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="">Username: </label> {{myformuser.username}}
+                    </div>
+
+                    <div class="col-12">
+                        <label for="">Email: </label> {{myformuser.email}}
+                    </div>
+
+                    <div class="col-12">
+                        <label for="">Gender: </label> {{myformuser.gender}}
+                    </div>
+                </div>
+              
+            </div>
+
+
+
+            <form [formGroup]="reactsignup"  (ngSubmit)="reactFormSubmit()">
+                <div class="form-group">
+                    <label for="">User name <span class="text-danger">*</span> </label>
+                    <input class="form-control" type="text"  formControlName="username">
+                    <span *ngIf="reactsignup.get('username').invalid  && reactsignup.get('username').touched" class="text-danger">
+                        <span *ngIf="reactsignup.get('username').errors.required">                       Please enter the field</span>
+
+                    <span *ngIf="reactsignup.get('username').errors.nameIsRestricted">username is not valid</span>
+                </span>
+                </div>
+
+             
+                <div formGroupName="userData">
+                <div class="form-group">
+                    <label for="">Email <span class="text-danger">*</span></label>
+                    <input  class="form-control" type="text"  formControlName="email">
+                    <span class="text-danger" *ngIf="reactsignup.get('userData.email').invalid  && reactsignup.get('userData.email').touched">Please enter valid email</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="">Gender <span class="text-danger">*</span></label>
+                    <select class="form-control" formControlName="gender" >   
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <span class="text-danger" *ngIf="reactsignup.get('userData.gender').invalid  && reactsignup.get('userData.gender').touched">Please enter the field</span>
+                      
+                </div>
+
+
+            </div>
+
+            <div formControlArray="hobbies">
+            <button type="button" (click)="onAddHobby()" class="btn btn-warning">Add Hobby</button>
+
+            <div class="form-group" *ngFor="let hobby of getHobbies; let  i = index">
+                <input type="text" class="form-control" [formControlName]="i">
+            </div>
+            </div>
+           
+
+
+                <div class="mt-2">
+                   
+                    <!-- <button [disabled]="!reactsignup.valid" type="submit" class="btn btn-info">Submit</button> -->
+                    <button  type="submit" class="btn btn-info">Submit</button>
+ 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

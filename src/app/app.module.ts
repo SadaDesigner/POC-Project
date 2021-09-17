@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,10 @@ import { SadaDirectiveDirective } from './sada-directive.directive';
 import { ChirpComponent } from './chirp/chirp.component';
 import { PostDetailsComponent } from './dashboard/post-details/post-details.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { CpipeComponent } from './cpipe/cpipe.component';
+import { myCustomPipe } from './cpipe/custompipe.pipe';
+import { myCustomFilterPipe } from './cpipe/filter.pipe';
+import { TemplateformComponent } from './templateform/templateform.component'
 
 @NgModule({
   declarations: [
@@ -24,13 +28,19 @@ import { NotfoundComponent } from './notfound/notfound.component';
     ChirpComponent,
     PostDetailsComponent,
     NotfoundComponent,
+    CpipeComponent,
+    myCustomPipe,
+    myCustomFilterPipe,
+    TemplateformComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

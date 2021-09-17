@@ -1,10 +1,16 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MydataService {
+
+
+
+  //  showingdataApp = new EventEmitter<Boolean>();
+      showingdataApp = new Subject<boolean>()
 
   constructor(private http:HttpClient) { }
 
@@ -19,6 +25,15 @@ export class MydataService {
 
   removedata(id) {
       return this.http.delete(`${this.url}/${id}`);
+  }
+
+  show:boolean = false;
+
+
+  showingData() {
+  //  this.showingdataApp.emit(true)
+   this.showingdataApp.next(this.show = !this.show)
+
   }
 
   

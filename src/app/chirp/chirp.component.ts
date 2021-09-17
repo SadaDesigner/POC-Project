@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-chirp',
@@ -23,8 +24,20 @@ export class ChirpComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
+
+
+  simplePostForm: FormGroup;
+
+  ngOnInit(): void { 
+    this.simplePostForm = new FormGroup({
+      'one': new FormControl(null, Validators.required),
+      'two': new FormControl(null, Validators.required)
+    })
    
+  }
+
+  postSimpleForm() {
+    console.log(this.simplePostForm)
   }
 
 }
