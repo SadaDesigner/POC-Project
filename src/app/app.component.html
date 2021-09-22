@@ -2,12 +2,16 @@
 
 </app-header>
 
+
+
 <div [ngClass]="isFluid ? 'container-fluid':'container'">
   <router-outlet></router-outlet>
 
-
+{{isloginshow}}
 
 </div>
 
 <div *ngIf="showDataInApp">data showing from dashboard component</div>
+
+
 

@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     name:'sadashiv', age:32, role: 'uideveloper'
   }
 
+
   checBoxClick(e, id, title) {
  
       // check items and push to selected list
@@ -111,6 +112,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   // gotoquery() {
   //   this.route.navigate(['/dashboard/postdetails', 5, 'sadashiv'], {queryParams: this.employeedetails})
   // }
+
+
+  
+
 
   ngOnInit() {
 

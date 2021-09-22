@@ -10,8 +10,14 @@
      
     </nav>
 
-    <a class="btn btn-outline-primary" (click)="getusername()" href="#">Sign In</a>
+    <!-- <a class="btn btn-outline-primary" (click)="getusername()" href="#">Sign In</a>
     <a class="btn btn-outline-primary" href="#">Sign up</a>
 
-    {{username}}
+    {{username}} -->
+
+    <button [hidden]="isloginshow"  class="btn btn-info mr-3" (click)="Login()">Login</button>
+    <i [hidden]="!isloginshow">Welcome Sadashiv</i>
+    <button [hidden]="!isloginshow"  class="btn btn-info ml-3" (click)="Logout()">Logout</button>  
+
+
   </div>

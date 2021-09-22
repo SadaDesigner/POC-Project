@@ -36,7 +36,117 @@ export class MydataService {
 
   }
 
+  islogin: boolean = false;
+  isLoggin() {
+    this.islogin = true;
+
+  }
   
+  isLogout() {
+    this.islogin = false;
+
+  }
+
+  isAuthonticate() {
+    return this.islogin
+  }
+
+
+  family:any = [{
+    name:'Sada',
+    role:'UI Developer',
+    age: 32,
+    married: true,
+    gender: 'male'
+  },
+  {
+    name:'Sarika',
+    role:'House Wife',
+    age: 30,
+    married: true,
+    gender: 'female'
+  },
+  {
+    name:'Shanvika Bachuwar',
+    role:'Playing Games',
+    age: 2,
+    married: false,
+    gender: 'female'
+  },
+  {
+    name:'prakash',
+    role:'retired',
+    age: 71,
+    married: true,
+    gender: 'male'
+  },
+  {
+    name:'chandrakala',
+    role:'house wife',
+    age:60,
+    married: true,
+    gender: 'female'
+  },
+  {
+    name:'mahendar',
+    role:'project manager',
+    age: 36,
+    married: true,
+    gender: 'male'
+  },
+  {
+    name:'jayasri',
+    role:'house wife',
+    age: 30,
+    married: true,
+    gender: 'female'
+  },
+  {
+    name:'akhila',
+    role:'studying',
+    age: 20,
+    married: false,
+    gender: 'female'
+  },
+
+  {
+    name:'anusha',
+    role:'studying',
+    age: 19,
+    married: false,
+    gender: 'female'
+  },
+  {
+    name:'akku',
+    role:'studying',
+    age: 11,
+    married: false,
+    gender: 'female'
+  },  
+  {
+    name:'chikku',
+    role:'studying',
+    age: 12,
+    married: false,
+    gender: 'female'
+  },
+  {
+    name:'chitavake',
+    role:'studying',
+    age: 6,
+    married: false,
+    gender: 'female'
+  },
+  {
+    name:'gaurik',
+    role:'studying',
+    age: 4,
+    married: false,
+    gender: 'female'
+  }
+
+
+]
 
 
 }

@@ -15,3 +15,26 @@
 
         {{mypromise | async}}
 </ul>
+
+<!-- <select name="" id="" [(ngModel)]="selection">
+    <option value="married">get married</option>
+    <option value="younger">get younger</option>
+    <option value="elder">get elder</option>
+</select> -->
+<h4>Family</h4>
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>role</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Married</th>
+  </tr>
+  <tr *ngFor="let member of family | gridfilter">
+    <td>{{member.name }}</td>
+    <td>{{member.role}}</td>
+    <td>{{member.age}}</td>
+    <td>{{member.gender}}</td>
+    <td>{{member.married}}</td>
+  </tr>
+</table>

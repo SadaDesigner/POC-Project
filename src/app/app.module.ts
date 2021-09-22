@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -9,13 +9,19 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AdminComponent } from './admin/admin.component';
 import { SadaDirectiveDirective } from './sada-directive.directive';
-import { ChirpComponent } from './chirp/chirp.component';
+
 import { PostDetailsComponent } from './dashboard/post-details/post-details.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CpipeComponent } from './cpipe/cpipe.component';
 import { myCustomPipe } from './cpipe/custompipe.pipe';
 import { myCustomFilterPipe } from './cpipe/filter.pipe';
-import { TemplateformComponent } from './templateform/templateform.component'
+import { TemplateformComponent } from './templateform/templateform.component';
+import { IntercepterService } from './intercepterservice.service';
+import { myModule } from './my.module';
+import { myGuard } from './guards/myguard.service';
+import { TruncatePipe } from './cpipe/truncate.pipe';
+import { gridFilter } from './cpipe/gridfilter.pipe'
+
 
 @NgModule({
   declarations: [
@@ -25,24 +31,28 @@ import { TemplateformComponent } from './templateform/templateform.component'
     SettingsComponent,
     AdminComponent,
     SadaDirectiveDirective,
-    ChirpComponent,
     PostDetailsComponent,
     NotfoundComponent,
     CpipeComponent,
     myCustomPipe,
     myCustomFilterPipe,
-    TemplateformComponent
+    TemplateformComponent,
+    TruncatePipe,
+    gridFilter
+    
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    myModule
     
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: IntercepterService,  multi: true}, myGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

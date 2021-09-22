@@ -15,6 +15,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   showDataInApp: boolean = false;
   showDataSubscription: Subscription;
+  isloginshow: boolean;
+  truncatevalue: string = "hello friends how are you all"
 
   ngOnInit() {
     this.showDataSubscription = this.dataservice.showingdataApp.subscribe(
@@ -23,6 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     );
 
+    this.isloginshow = this.dataservice.islogin
    
   }
   ngOnDestroy() {

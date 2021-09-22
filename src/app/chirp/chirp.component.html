@@ -56,20 +56,28 @@
 
   <div class="container">
     <div class="col-md-12">
-      <form [formGroup]="simplePostForm" (ngSubmit)="postSimpleForm()">
-      <div class="form-group">
-        <label for="">title</label>
-        <input type="text" class="form-control" FormControlName="one">
-      </div>
 
-      <div class="form-group">
-        <label for="">Description</label>
-
-      <textarea cols="30" rows="10" class="form-control" FormControlName="two"></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-success">Submit</button>
-
-    </form>
     </div>
   </div>
+
+<h3>below value coming from above parameters using activated route params</h3>
+  {{mynamefromsettings.name}}
+
+<!-- 
+  <h4>Family</h4>
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>role</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Married</th>
+  </tr>
+  <tr *ngFor="let member of family">
+    <td>{{member.name | gridfilter:2}}</td>
+    <td>{{member.role}}</td>
+    <td>{{member.age}}</td>
+    <td>{{member.gender}}</td>
+    <td>{{member.married}}</td>
+  </tr>
+</table> -->

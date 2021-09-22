@@ -21,5 +21,7 @@
 
 <app-cpipe></app-cpipe>
 
+<input type="text" [(ngModel)]="sendmyname.name">
+<button class="btn btn-info mt-3" routerLink="/chirp" [queryParams]="sendmyname">go to chirp</button>
 
 

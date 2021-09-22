@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MydataService } from '../mydata.service';
+
 
 @Component({
   selector: 'app-cpipe',
@@ -7,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CpipeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dataservice: MydataService,) { }
+  
 
+  family:any = this.dataservice.family;
+  selection:any;
   ngOnInit(): void {
   }
   //para: number = 4;

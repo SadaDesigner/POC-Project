@@ -29,6 +29,11 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   }
 
+  
+  sendmyname = {
+    name:'bachuwar'
+  }
+
   ngOnInit(): void {
     this.ac.data.subscribe((data) => {
       console.log('routing data ' + data.role)

@@ -7,12 +7,13 @@ import { ChirpComponent } from './chirp/chirp.component';
 import { PostDetailsComponent } from './dashboard/post-details/post-details.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { TemplateformComponent } from './templateform/templateform.component';
+import { myGuard } from './guards/myguard.service';
 
 const routes: Routes = [
   {path : '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path : 'dashboard', component: DashboardComponent, data:{name:' sadashiv', age: 32}},
   {path : 'settings', component: SettingsComponent, data: {name: 'sadashiv', role:'ui developer'}},
-  {path : 'admin', component: AdminComponent},
+  {path : 'admin', component: AdminComponent, canActivate: [myGuard]},
   {path : 'admin/:title', component: AdminComponent}, 
   {path : 'chirp', component: ChirpComponent},
   {path : 'dashboard/postdetails/:id', component: PostDetailsComponent},
