@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MydataService } from '../mydata.service';
 
 
@@ -11,10 +11,17 @@ export class CpipeComponent implements OnInit {
 
   constructor(public dataservice: MydataService,) { }
   
+  @Output() mycustomevent = new EventEmitter()
 
+  // sendoutput() {
+  //   this.mycustomevent.emit(this.childdata)
+  // }
+  childdata: string = 'this data coming from child to parent component using output event emitter'
   family:any = this.dataservice.family;
   selection:any;
   ngOnInit(): void {
+    this.mycustomevent.emit(this.childdata)
+    // this.sendoutput()
   }
   //para: number = 4;
   helo:any;

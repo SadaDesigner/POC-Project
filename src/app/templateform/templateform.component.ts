@@ -77,7 +77,7 @@ export class TemplateformComponent implements OnInit, AfterViewInit {
       'hobbies': new FormArray([])
 
     })
-    debugger;
+
     this.getReactFormData()
 
   }

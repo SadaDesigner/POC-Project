@@ -1,4 +1,6 @@
 
+<h5>Output Example</h5>
+{{datafromchild}}
 <div class="container">
   <div class="row">
   <div class="col-6">
@@ -12,16 +14,21 @@
     padding: 10px; margin-bottom: 10px; margin-right: 10px;"><img [src]="li.owner.avatar_url" width="100" class="rounded" alt=""></li>
   </ul>
   </div>
-  <div class="col-6">
+
+  <div class="col-6" *ngIf="isloginshow">
     <h3>Custom directive</h3>
     <div appSadaDirective>this color is coming from custom directive</div>
   </div>
 </div>
 </div>
 
-<app-cpipe></app-cpipe>
+
+<h4>Child component start from here</h4>
+<app-cpipe (mycustomevent)="sendoutput($event)"></app-cpipe>
 
 <input type="text" [(ngModel)]="sendmyname.name">
 <button class="btn btn-info mt-3" routerLink="/chirp" [queryParams]="sendmyname">go to chirp</button>
+
+
 
 

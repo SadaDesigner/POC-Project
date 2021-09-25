@@ -8,12 +8,10 @@ import { MydataService } from './mydata.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  constructor(private dataservice: MydataService) {}
+  constructor(private dataservice: MydataService) { }
   applicationname = 'Sample Project';
-
   isFluid: boolean = false;
-
-  showDataInApp: boolean = false;
+  showDataInApp: any = false;
   showDataSubscription: Subscription;
   isloginshow: boolean;
   truncatevalue: string = "hello friends how are you all"
@@ -25,13 +23,10 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     );
 
-    this.isloginshow = this.dataservice.islogin
-   
+    //  this.isloginshow = this.dataservice.islogin
+
   }
   ngOnDestroy() {
     this.showDataSubscription.unsubscribe()
-  
   }
-
-
 }

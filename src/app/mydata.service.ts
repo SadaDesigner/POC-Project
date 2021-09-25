@@ -6,17 +6,17 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class MydataService {
-
-
+  isloginevent = new EventEmitter()
+  //isloginevent = new Subject<boolean>()
 
   //  showingdataApp = new EventEmitter<Boolean>();
-      showingdataApp = new Subject<boolean>()
+  showingdataApp = new Subject<boolean>()
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   todolist: any = [];
-  url:any = "https://jsonplaceholder.typicode.com/posts"
-  mydata:any = []
+  url: any = "https://jsonplaceholder.typicode.com/posts"
+  mydata: any = []
 
 
   getdata() {
@@ -24,24 +24,28 @@ export class MydataService {
   }
 
   removedata(id) {
-      return this.http.delete(`${this.url}/${id}`);
+    return this.http.delete(`${this.url}/${id}`);
   }
 
-  show:boolean = false;
+  show: boolean = false;
 
 
   showingData() {
-  //  this.showingdataApp.emit(true)
-   this.showingdataApp.next(this.show = !this.show)
+    //  this.showingdataApp.emit(true)
+    this.showingdataApp.next(this.show = !this.show)
 
   }
 
   islogin: boolean = false;
   isLoggin() {
-    this.islogin = true;
+    
+    //this.islogin = true;
+    //this.isloginevent.next(this.islogin = !this.islogin)
+
+    this.isloginevent.emit(this.islogin = !this.islogin)
 
   }
-  
+
   isLogout() {
     this.islogin = false;
 
@@ -52,101 +56,104 @@ export class MydataService {
   }
 
 
-  family:any = [{
-    name:'Sada',
-    role:'UI Developer',
+
+
+  family: any = [{
+    name: 'Sada',
+    role: 'UI Developer',
     age: 32,
     married: true,
     gender: 'male'
   },
   {
-    name:'Sarika',
-    role:'House Wife',
+    name: 'Sarika',
+    role: 'House Wife',
     age: 30,
     married: true,
     gender: 'female'
   },
   {
-    name:'Shanvika Bachuwar',
-    role:'Playing Games',
+    name: 'Shanvika Bachuwar',
+    role: 'Playing Games',
     age: 2,
     married: false,
     gender: 'female'
   },
   {
-    name:'prakash',
-    role:'retired',
+    name: 'prakash',
+    role: 'retired',
     age: 71,
     married: true,
     gender: 'male'
   },
   {
-    name:'chandrakala',
-    role:'house wife',
-    age:60,
+    name: 'chandrakala',
+    role: 'house wife',
+    age: 60,
     married: true,
     gender: 'female'
   },
   {
-    name:'mahendar',
-    role:'project manager',
+    name: 'mahendar',
+    role: 'project manager',
     age: 36,
     married: true,
     gender: 'male'
   },
   {
-    name:'jayasri',
-    role:'house wife',
+    name: 'jayasri',
+    role: 'house wife',
     age: 30,
     married: true,
     gender: 'female'
   },
   {
-    name:'akhila',
-    role:'studying',
+    name: 'akhila',
+    role: 'studying',
     age: 20,
     married: false,
     gender: 'female'
   },
 
   {
-    name:'anusha',
-    role:'studying',
+    name: 'anusha',
+    role: 'studying',
     age: 19,
     married: false,
     gender: 'female'
   },
   {
-    name:'akku',
-    role:'studying',
+    name: 'akku',
+    role: 'studying',
     age: 11,
     married: false,
     gender: 'female'
-  },  
+  },
   {
-    name:'chikku',
-    role:'studying',
+    name: 'chikku',
+    role: 'studying',
     age: 12,
     married: false,
     gender: 'female'
   },
   {
-    name:'chitavake',
-    role:'studying',
+    name: 'chitavake',
+    role: 'studying',
     age: 6,
     married: false,
     gender: 'female'
   },
   {
-    name:'gaurik',
-    role:'studying',
+    name: 'gaurik',
+    role: 'studying',
     age: 4,
     married: false,
     gender: 'female'
   }
 
 
-]
+  ]
+ 
 
 
 }

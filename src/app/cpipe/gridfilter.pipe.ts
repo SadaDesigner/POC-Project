@@ -7,7 +7,6 @@ import { Pipe, PipeTransform } from "@angular/core";
 })
 export class gridFilter implements PipeTransform {
 
-
     transform(value) {
 
         let married = this.getmarried
