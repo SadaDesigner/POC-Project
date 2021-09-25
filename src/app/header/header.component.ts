@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
     this.isloginsubscription = this.dataservice.isloginevent.subscribe((data) => {
       this.isloginshow = data;
   
-  }),
+  })
   
   }
 
