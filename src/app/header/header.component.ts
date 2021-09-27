@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ObjectUnsubscribedError, Observable, observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, interval, ObjectUnsubscribedError, Observable, observable, of, Subject } from 'rxjs';
 import { MydataService } from '../mydata.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   this.username = prompt('enter username')
   }
 
-  isloginshow: boolean = false;
+  isloginshow: boolean = false
   Login() {
     this.dataservice.isLoggin();
     //this.isloginshow = this.dataservice.islogin
@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
 
 
   multipleSubscriber() {
-    const arr = [20,30,40,50,60];
+    const arr = [20,30,40,50,60, 70, 80, 90];
 
     return (observer) => {
         this.run(observer, arr, 0)
@@ -66,6 +66,10 @@ export class HeaderComponent implements OnInit {
     }, 2000)
   }
 
+
+  subject = new Subject()
+  //subject = new BehaviorSubject(0)
+ 
   ngOnInit(): void {
     this.isloginsubsribe()
 
@@ -85,30 +89,82 @@ export class HeaderComponent implements OnInit {
     // setTimeout(() => {obs.subscribe(data => {console.log(data)})}, 4000)
 
 
-    const sequence = new Observable(this.multipleSubscriber())
+//     const sequence = new Observable(this.multipleSubscriber())
 
-    sequence.subscribe({
-      next(num) {
-          console.log('1st subscriber' + num)
-      },
+//     sequence.subscribe({
+//       next(num) {
+//           console.log('1st subscriber' + num)
+//       },
 
-      complete() {
-        console.log('1st finished')
-      }
-    })
+//       complete() {
+//         console.log('1st finished')
+//       }
+//     })
 
 
- setTimeout(() => {
-   sequence.subscribe({
-     next(num) {
-       console.log('2nd subscriber' + num)
-     },
+//  setTimeout(() => {
+//    sequence.subscribe({
+//      next(num) {
+//        console.log('2nd subscriber' + num)
+//      },
 
-     complete() {
-       console.log('2nd finished')
-     }
-   })
- }, 3000)
+//      complete() {
+//        console.log('2nd finished')
+//      }
+//    })
+//  }, 10000)
+
+      
+      let obs = interval(1000)
+      // let sub1 = obs.subscribe((data) => {
+      //   console.log('1st sub ' + data)
+      // })
+      // var sub2;
+
+      // setTimeout(() => {
+      //   sub2 = obs.subscribe((data) => {
+      //     console.log('2nd sub ' + data)
+      //   })
+
+      //   sub1.unsubscribe()
+
+      // }, 5000)
+
+
+      // obs.subscribe((data) => {     //subscribing data then send it to subect
+      //    this.subject.next(data)
+      // })
+
+      // let newsub1 = this.subject.subscribe((data) => {
+      //     console.log('1st ' + data)
+      // })
+
+      // let newsub2;
+      // setTimeout(() => {
+      
+      //   newsub2  = this.subject.subscribe((data) => {
+      //     console.log('2nd ' + data)
+      // })
+      //   newsub1.unsubscribe()
+      // }, 5000)
+
+      // setTimeout(() => {
+      //   newsub2.unsubscribe()
+      // }, 10000)
+
+
+     
+       
+      let ofmydata = 'sadashiv';
+      let dummy =of(ofmydata)
+    
+    
+         dummy.subscribe((data) => {
+    
+          console.log('testing observable ' + data)
+        })
+
+
 
     }
  

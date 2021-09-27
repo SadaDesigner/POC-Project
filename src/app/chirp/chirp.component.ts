@@ -30,6 +30,12 @@ export class ChirpComponent implements OnInit {
 
   mynamefromsettings:any; 
 
+
+listheading = ''
+  get checkHeading() {
+    return this.listheading != ""
+  }
+
   ngOnInit(): void { 
 
     this.ac.queryParams.subscribe((response) => {
