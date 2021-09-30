@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -8,6 +8,7 @@ import { PostDetailsComponent } from './dashboard/post-details/post-details.comp
 import { NotfoundComponent } from './notfound/notfound.component';
 import { TemplateformComponent } from './templateform/templateform.component';
 import { myGuard } from './guards/myguard.service';
+import { CrudComponent } from './crud/crud.component';
 
 const routes: Routes = [
   {path : '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -19,7 +20,9 @@ const routes: Routes = [
   {path : 'dashboard/postdetails/:id', component: PostDetailsComponent},
   {path:  'not-found', component: NotfoundComponent },
   {path: 'template-form', component: TemplateformComponent},
+  {path: 'mycrud', component:CrudComponent},
   {path:  '**', redirectTo: 'not-found'}
+
  
  
 ]

@@ -9,18 +9,22 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AdminComponent } from './admin/admin.component';
 import { SadaDirectiveDirective } from './sada-directive.directive';
-
 import { PostDetailsComponent } from './dashboard/post-details/post-details.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CpipeComponent } from './cpipe/cpipe.component';
 import { myCustomPipe } from './cpipe/custompipe.pipe';
 import { myCustomFilterPipe } from './cpipe/filter.pipe';
 import { TemplateformComponent } from './templateform/templateform.component';
-import { IntercepterService } from './intercepterservice.service';
+// import { IntercepterService } from './intercepterservice.service';
 import { myModule } from './my.module';
 import { myGuard } from './guards/myguard.service';
 import { TruncatePipe } from './cpipe/truncate.pipe';
-import { gridFilter } from './cpipe/gridfilter.pipe'
+import { gridFilter } from './cpipe/gridfilter.pipe';
+import { CrudComponent } from './crud/crud.component';
+import { EmployeeComponent } from './crud/employee/employee.component';
+import { CrudserviceService } from './crudservice.service';
+
+
 
 
 @NgModule({
@@ -38,7 +42,9 @@ import { gridFilter } from './cpipe/gridfilter.pipe'
     myCustomFilterPipe,
     TemplateformComponent,
     TruncatePipe,
-    gridFilter
+    gridFilter,
+    CrudComponent,
+    EmployeeComponent
     
     
   ],
@@ -52,7 +58,8 @@ import { gridFilter } from './cpipe/gridfilter.pipe'
     myModule
     
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: IntercepterService,  multi: true}, myGuard],
+  // {provide: HTTP_INTERCEPTORS, useClass: IntercepterService,  multi: true}, 
+  providers: [myGuard, CrudserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

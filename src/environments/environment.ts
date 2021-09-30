@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  url: 'https://mysecondproject-a78bd-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json'
+  url: 'https://mysecondproject-a78bd-default-rtdb.asia-southeast1.firebasedatabase.app/posts.json',
+  firebaseConfig : {
+    apiKey: "AIzaSyDp7kNcWj9MUwDrtd3t2zJOc__4GIAEvS8",
+    authDomain: "crudproject-1d18f.firebaseapp.com",
+    projectId: "crudproject-1d18f",
+    storageBucket: "crudproject-1d18f.appspot.com",
+    messagingSenderId: "261388529437",
+    appId: "1:261388529437:web:25a60f97817d67df3efbf4",
+    measurementId: "G-9Z3N4QPLJV"
+  }
 };
 
 /*

@@ -50,6 +50,10 @@ export class SubjectcompComponent implements OnInit {
   
 
 obs = interval(1000)
+
+num = 5;
+
+//mydata = of('mydata' + this.num++)
 sub1:any;
 sub2:any;
 sub3:any;
@@ -82,7 +86,7 @@ stopsubscribe2 () {
   this.sub4.unsubscribe()
 }
 
-callbefore1 () {
+callbeforeWithSubject () {
   // this.sub1.unsubscribe()
   // this.sub2.unsubscribe()
 
@@ -97,7 +101,7 @@ callbefore1 () {
 
 }
 
-calllater1 () {
+calllaterWithSubject () {
   // this.sub1.unsubscribe()
   // this.sub2.unsubscribe()
      this.sub3.unsubscribe()
@@ -188,14 +192,9 @@ calllater1 () {
  
 let ofmydata = 'sadashiv';
 let dummy =of(ofmydata)
-
-
    dummy.subscribe((data) => {
-
     console.log('testing observable ' + data)
   })
-
-
   }
 
 }

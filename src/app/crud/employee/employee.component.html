@@ -1,0 +1,78 @@
+<form action="" [formGroup]="cs.form" (submit)="formSubmit(cs.form.value)">
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+              
+                <input type="hidden" class="form-control" formControlName="key">
+            </div>
+            <div class="form-group">
+                <label for="">fullname *</label>
+                <input type="text" class="form-control" formControlName="fullname" required>
+                <span class="text-danger" *ngIf="cs.form.controls['fullname'].invalid && cs.form.controls['fullname'].touched">this field is required</span>
+            </div>
+        
+            <div class="form-group">
+                <label for="">email</label>
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+        
+            <div class="form-group">
+                <label for="">mobile *</label>
+                <input type="text" class="form-control" formControlName="mobile" required>
+                <span class="text-danger" *ngIf="cs.form.controls['mobile'].errors?.required && cs.form.controls['mobile'].touched">this field is required</span>
+                <span class="text-danger" *ngIf="cs.form.controls['mobile'].errors?.minLength && cs.form.controls['mobile'].touched">mobile no minimum 10 characters required</span>
+            </div>
+        
+            
+            <div class="form-group">
+                <label for="">city</label>
+                <input type="text" class="form-control" formControlName="city">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="">Gender</label>
+                <input type="radio" value="1" formControlName="gender" class="">Male
+                <input type="radio" value="0" formControlName="gender"  class="">Female
+
+
+            </div>
+
+            <div class="form-group">
+                <label for="">Department</label>
+               <select name="" id="" class="form-control" formControlName="department">
+                   <option value="{{dep.id}}" *ngFor="let dep of cs.departments">{{dep.name}}</option>
+               </select>
+
+
+            </div>
+
+
+            <div class="form-group">
+                <label for="">Hire Date</label>
+                <input type="date" formControlName="hireDate" class="form-control">
+
+
+            </div>
+            <div class="form-group">
+                <label for="">Is Perminant</label>
+                <input type="checkbox" formControlName="isPerminant">
+
+
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button (click)="onClick()" class="btn btn-success">Cancel</button>
+                    <button [hidden]="cs.editMode" [disabled]="cs.form.invalid" class="btn btn-success" type="submit">Submit</button>
+                    <button [hidden]="!cs.editMode" class="btn btn-success" type="button" (click)="formUpdate(cs.form.value)">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+
