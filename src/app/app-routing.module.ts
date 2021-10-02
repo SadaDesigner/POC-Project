@@ -9,6 +9,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { TemplateformComponent } from './templateform/templateform.component';
 import { myGuard } from './guards/myguard.service';
 import { CrudComponent } from './crud/crud.component';
+import { EmployeeComponent } from './crud/employee/employee.component';
 
 const routes: Routes = [
   {path : '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:  'not-found', component: NotfoundComponent },
   {path: 'template-form', component: TemplateformComponent},
   {path: 'mycrud', component:CrudComponent},
+  {path: 'addemployee', component: EmployeeComponent},
   {path:  '**', redirectTo: 'not-found'}
 
  

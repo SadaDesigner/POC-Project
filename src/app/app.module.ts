@@ -23,6 +23,7 @@ import { gridFilter } from './cpipe/gridfilter.pipe';
 import { CrudComponent } from './crud/crud.component';
 import { EmployeeComponent } from './crud/employee/employee.component';
 import { CrudserviceService } from './crudservice.service';
+import { filterPipe } from './crud/filterpipe.pipe.'
 
 
 
@@ -44,7 +45,8 @@ import { CrudserviceService } from './crudservice.service';
     TruncatePipe,
     gridFilter,
     CrudComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    filterPipe
     
     
   ],

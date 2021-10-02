@@ -58,9 +58,9 @@ export class CrudserviceService {
     )
   }
 
-url = 'http://localhost:3021/employees'
+url = 'http://localhost:3000/employees'
 
-getCobjId:any;
+getCobjId: number;
 editMode: boolean = false;
   prepopulatevalues(cuserid, cuser) {
     this.form.setValue(cuser)
@@ -80,7 +80,7 @@ postuser(user) {
 
 
 updateuser(cuser) {
-  return this.http.put(this.url + '/' +  4, cuser)
+  return this.http.put(this.url + '/' +  this.getCobjId, cuser)
 }
 deleteuser(userid) {
   return this.http.delete(this.url + '/' + userid)

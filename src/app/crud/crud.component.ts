@@ -1,5 +1,6 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CrudserviceService } from '../crudservice.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { CrudserviceService } from '../crudservice.service';
 })
 export class CrudComponent implements OnInit {
 
-  constructor(public cs:CrudserviceService) { }
+  constructor(public cs:CrudserviceService, private route:Router) { }
 employeelist :any;
 
 
@@ -31,6 +32,11 @@ employeelist :any;
 
   editEmpoyee(cuserid, cuser) {
     this.cs.editMode = true;
+    this.cs.editMode = true;
+    this.route.navigate(['/addemployee'])
+    this.cs.getCobjId = cuserid;  //sending current id through cuserid parameter to the service
+ 
+
       this.cs.prepopulatevalues(cuserid, cuser)
     
 
@@ -38,6 +44,11 @@ employeelist :any;
     // this.cs.updateuser(userid, cuser).subscribe(data => {
     //   this.employeelist = data
     // })
+  }
+
+
+  gotoAddEmployee() {
+    this.cs.editMode = false;
   }
 
   ngOnInit(): void {

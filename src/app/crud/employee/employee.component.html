@@ -1,5 +1,7 @@
 <form action="" [formGroup]="cs.form" (submit)="formSubmit(cs.form.value)">
-
+<div class="row">
+    <div class="col-12"><h3 [hidden]="cs.editMode">Add Employee</h3> <h3 [hidden]="!cs.editMode">Edit Employee</h3></div>
+</div>
     <div class="row">
         <div class="col-6">
             <div class="form-group">
@@ -42,7 +44,7 @@
             <div class="form-group">
                 <label for="">Department</label>
                <select name="" id="" class="form-control" formControlName="department">
-                   <option value="{{dep.id}}" *ngFor="let dep of cs.departments">{{dep.name}}</option>
+                   <option value="{{dep.name}}" *ngFor="let dep of cs.departments">{{dep.name}}</option>
                </select>
 
 
@@ -64,9 +66,11 @@
 
             <div class="row">
                 <div class="col">
-                    <button (click)="onClick()" class="btn btn-success">Cancel</button>
-                    <button [hidden]="cs.editMode" [disabled]="cs.form.invalid" class="btn btn-success" type="submit">Submit</button>
-                    <button [hidden]="!cs.editMode" class="btn btn-success" type="button" (click)="formUpdate(cs.form.value)">Update</button>
+                    <button (click)="onClick()" class="btn btn-success" routerLink="/mycrud">Cancel</button>
+                    <button *ngIf="!cs.editMode" [disabled]="cs.form.invalid" class="btn btn-success" type="submit">Submit</button>
+                    <button *ngIf="cs.editMode"  class="btn btn-success" type="button" (click)="formUpdate(cs.form.value)">Update</button>
+               
+                
                 </div>
             </div>
         </div>

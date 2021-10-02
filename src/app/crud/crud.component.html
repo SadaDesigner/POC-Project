@@ -1,6 +1,8 @@
 <h4>CRUD operations</h4>
+<!-- 
+<app-employee [employeelist] ="employeelist"></app-employee> -->
 
-<app-employee [employeelist] ="employeelist"></app-employee>
+<button class="btn btn-info" routerLink="/addemployee" (click)="gotoAddEmployee()">Add Employee</button>
 
 <table class="table table-bordered">
   <tr>
@@ -8,18 +10,24 @@
     <th>Name</th>
     <th>mobile</th>
     <th>gender</th>
+    <th>department</th>
     <th>hiredate</th>
     <th>is perminant</th>
     <th>actions</th>
   </tr>
   <tr *ngFor="let employee of employeelist">
       <td>{{employee.id}}</td>
-    <td>{{employee.fullname}}</td>
+    <td>{{employee.fullname | filterPipe:4}}</td>
     <td>{{employee.mobile}}</td>
     <td>{{employee.gender}}</td>
-    <td>{{employee.hiredata}}</td>
+    <td>{{employee.department}}</td>
+    <td>{{employee.hireDate | date: 'dd/MM/yyyy'}}</td>
     <td>{{employee.isPerminant}}</td>
     <td>    <button class="btn btn-info" (click)="editEmpoyee(employee.id, employee)">Edit</button>
         <button class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button></td>
   </tr>
+  
 </table>
+
+
+
