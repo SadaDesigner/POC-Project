@@ -2,7 +2,14 @@
 <!-- 
 <app-employee [employeelist] ="employeelist"></app-employee> -->
 
-<button class="btn btn-info" routerLink="/addemployee" (click)="gotoAddEmployee()">Add Employee</button>
+
+<div class="row mb-2">
+  <div class="col-12 d-flex justify-content-between">
+    <input type="text" class="form-control w-25" [(ngModel)]="gridsearch">
+    <button class="btn btn-info" routerLink="/addemployee" (click)="gotoAddEmployee()">Add Employee</button>
+  </div>
+</div>
+
 
 <table class="table table-bordered">
   <tr>
@@ -15,17 +22,27 @@
     <th>is perminant</th>
     <th>actions</th>
   </tr>
-  <tr *ngFor="let employee of employeelist">
+  <tr *ngFor="let employee of employeelist |  empFilter: gridsearch">
       <td>{{employee.id}}</td>
-    <td>{{employee.fullname | filterPipe:4}}</td>
-    <td>{{employee.mobile}}</td>
+    <td>{{employee.fullname}}</td>
+    <td>{{employee.mobile}}</td> <!--  <td>{{employee.mobile | filterPipe}}</td> -->
     <td>{{employee.gender}}</td>
     <td>{{employee.department}}</td>
     <td>{{employee.hireDate | date: 'dd/MM/yyyy'}}</td>
-    <td>{{employee.isPerminant}}</td>
+    <td [ngClass]="employee.isPerminant ? 'green' : 'red'">{{employee.isPerminant}}</td>
     <td>    <button class="btn btn-info" (click)="editEmpoyee(employee.id, employee)">Edit</button>
         <button class="btn btn-danger" (click)="deleteEmployee(employee.id)">Delete</button></td>
   </tr>
+
+  <tr>
+    <td class="text-center" colspan="8">
+     <div  *ngIf="employeelist.length == 0 && !employeelistErrorMsgShow"> No Records Found</div>
+     <div class="alert alert-danger" *ngIf="employeelistErrorMsgShow"> {{employeelistErrorMsg}}</div>
+     </td> 
+   
+  </tr>
+
+
   
 </table>
 

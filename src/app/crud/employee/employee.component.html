@@ -17,11 +17,12 @@
             <div class="form-group">
                 <label for="">email</label>
                 <input type="text" class="form-control" formControlName="email">
+                <span class="text-danger" *ngIf="cs.form.controls['email'].invalid && cs.form.controls['email'].touched && cs.form.controls['email'].dirty">Email Invalid</span>
             </div>
         
             <div class="form-group">
                 <label for="">mobile *</label>
-                <input type="text" class="form-control" formControlName="mobile" required>
+                <input type="number" class="form-control" formControlName="mobile" required>
                 <span class="text-danger" *ngIf="cs.form.controls['mobile'].errors?.required && cs.form.controls['mobile'].touched">this field is required</span>
                 <span class="text-danger" *ngIf="cs.form.controls['mobile'].errors?.minLength && cs.form.controls['mobile'].touched">mobile no minimum 10 characters required</span>
             </div>
@@ -35,8 +36,8 @@
         <div class="col-6">
             <div class="form-group">
                 <label for="">Gender</label>
-                <input type="radio" value="1" formControlName="gender" class="">Male
-                <input type="radio" value="0" formControlName="gender"  class="">Female
+                <input type="radio" value="Male" formControlName="gender" class="">Male
+                <input type="radio" value="Female" formControlName="gender"  class="">Female
 
 
             </div>

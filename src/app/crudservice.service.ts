@@ -33,7 +33,7 @@ export class CrudserviceService {
   form = new FormGroup( {
     key: new FormControl(null),
     fullname: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.email),
+    email: new FormControl('', [Validators.email, Validators.required]),
     mobile: new FormControl('', [Validators.required, Validators.minLength(10)]),
     city: new FormControl(''),
     gender: new FormControl('1'),
