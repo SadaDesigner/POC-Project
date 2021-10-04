@@ -23,8 +23,9 @@ import { gridFilter } from './cpipe/gridfilter.pipe';
 import { CrudComponent } from './crud/crud.component';
 import { EmployeeComponent } from './crud/employee/employee.component';
 import { CrudserviceService } from './crudservice.service';
-import { filterPipe } from './crud/filterpipe.pipe.'
-
+import { filterPipe } from './crud/filterpipe.pipe.';
+import { ToastComponent } from './shared/toast/toast.component';
+import { ToasterService } from './shared/toaster.service'
 
 
 
@@ -46,7 +47,8 @@ import { filterPipe } from './crud/filterpipe.pipe.'
     gridFilter,
     CrudComponent,
     EmployeeComponent,
-    filterPipe
+    filterPipe,
+    ToastComponent
     
     
   ],
@@ -61,7 +63,7 @@ import { filterPipe } from './crud/filterpipe.pipe.'
     
   ],
   // {provide: HTTP_INTERCEPTORS, useClass: IntercepterService,  multi: true}, 
-  providers: [myGuard, CrudserviceService],
+  providers: [myGuard, CrudserviceService, ToasterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

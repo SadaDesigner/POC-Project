@@ -50,18 +50,6 @@
     },
     {
       "key": null,
-      "fullname": "sadashiv",
-      "email": "sada@sada.com",
-      "mobile": 1234567890,
-      "city": "hyd",
-      "gender": "1",
-      "department": "html",
-      "hireDate": "",
-      "isPerminant": true,
-      "id": 5
-    },
-    {
-      "key": null,
       "fullname": "prakash",
       "email": "prakash@gmail.com",
       "mobile": 1234567890,
@@ -86,15 +74,39 @@
     },
     {
       "key": null,
-      "fullname": "SAASHIV",
-      "email": "SDFS@SDFS.OCM",
+      "fullname": "sadashiv",
+      "email": "sada@gmail.com",
       "mobile": 1234567890,
-      "city": "SDFSD",
-      "gender": "Male",
-      "department": "html",
-      "hireDate": "2021-10-14",
+      "city": "hyderabads",
+      "gender": "Female",
+      "department": "react",
+      "hireDate": "2021-10-09",
       "isPerminant": true,
-      "id": 8
+      "id": 9
+    },
+    {
+      "key": null,
+      "fullname": "new employee",
+      "email": "employee@gmail.com",
+      "mobile": 1234567890,
+      "city": "hyderbasd",
+      "gender": "Male",
+      "department": "react",
+      "hireDate": "2021-10-09",
+      "isPerminant": true,
+      "id": 10
+    },
+    {
+      "key": null,
+      "fullname": "old employeed",
+      "email": "sdsfs@gmail.com",
+      "mobile": 1234567890,
+      "city": "hyderabad",
+      "gender": "Female",
+      "department": "angular",
+      "hireDate": "2021-10-22",
+      "isPerminant": true,
+      "id": 11
     }
   ]
 }

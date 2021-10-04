@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { CrudserviceService } from '../crudservice.service';
 import { EMPLOYEES } from '../model';
+import { ToasterService } from '../shared/toaster.service';
 
 @Component({
   selector: 'app-crud',
@@ -12,7 +13,7 @@ import { EMPLOYEES } from '../model';
 })
 export class CrudComponent implements OnInit {
 
-  constructor(public cs:CrudserviceService, private route:Router) { }
+  constructor(public cs:CrudserviceService, private route:Router, private ts:ToasterService) { }
 
 employeelist :any =[];
 employeelistErrorMsg: string;
@@ -51,6 +52,7 @@ gridsearch: string ='';
     })
 
     this.getEmployees()
+    this.ts.getToster('danger', 'employee delete successfully!')
   }
 
   editEmpoyee(cuserid, cuser) {

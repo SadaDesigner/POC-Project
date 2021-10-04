@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CrudserviceService } from 'src/app/crudservice.service';
+import { ToasterService } from 'src/app/shared/toaster.service';
 import { CrudComponent } from '../crud.component';
 
 
@@ -11,7 +12,7 @@ import { CrudComponent } from '../crud.component';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor(public cs:CrudserviceService, public route:Router) { }
+  constructor(public cs:CrudserviceService, public route:Router, public ts:ToasterService) { }
 
 
   @Input('employeelist') employeelist:any;
@@ -32,6 +33,7 @@ export class EmployeeComponent implements OnInit {
     })
     this.route.navigate(['/mycrud'])
     this.cs.form.reset()
+    this.ts.getToster('success', 'employee added successfully!')
   }
 
   formUpdate(form) {
@@ -41,6 +43,7 @@ export class EmployeeComponent implements OnInit {
     //  return data
      
     })
+    this.ts.getToster('warning', 'employee updated successfully!')
     this.route.navigate(['/mycrud'])
    // window.location.reload()
    

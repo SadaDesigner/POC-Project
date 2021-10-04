@@ -4,6 +4,7 @@ import { AdminComponent } from '../admin/admin.component';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { interval, Subscription } from 'rxjs';
+import { ToasterService } from '../shared/toaster.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { interval, Subscription } from 'rxjs';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(public dataservice: MydataService, private route: Router, private ac: ActivatedRoute) { }
+  constructor(public dataservice: MydataService, private route: Router, private ac: ActivatedRoute, public ts:ToasterService) { }
 
   @ViewChild('admin') admincomp: AdminComponent;
   showBulkActions: boolean = false;
@@ -105,7 +106,9 @@ export class DashboardComponent implements OnInit {
 
 
   datashowInApp() {
+
     this.dataservice.showingData();
+
 
   }
   // gotoquery() {
