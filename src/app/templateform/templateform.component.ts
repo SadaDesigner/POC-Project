@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -9,7 +9,8 @@ import { environment } from '../../environments/environment'
 @Component({
   selector: 'app-templateform',
   templateUrl: './templateform.component.html',
-  styleUrls: ['./templateform.component.scss']
+  styleUrls: ['./templateform.component.scss'],
+  encapsulation:ViewEncapsulation.None
 })
 export class TemplateformComponent implements OnInit, AfterViewInit {
   @ViewChild('scrollTable') scrollTable: ElementRef

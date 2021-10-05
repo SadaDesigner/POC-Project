@@ -10,6 +10,7 @@ import { TemplateformComponent } from './templateform/templateform.component';
 import { myGuard } from './guards/myguard.service';
 import { CrudComponent } from './crud/crud.component';
 import { EmployeeComponent } from './crud/employee/employee.component';
+import { AuthonticateComponent } from './authonticate/authonticate.component';
 
 const routes: Routes = [
   {path : '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'template-form', component: TemplateformComponent},
   {path: 'mycrud', component:CrudComponent},
   {path: 'addemployee', component: EmployeeComponent},
+  {path: 'authonticate', component: AuthonticateComponent},
   {path:  '**', redirectTo: 'not-found'}
 
  

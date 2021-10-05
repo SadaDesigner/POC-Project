@@ -28,3 +28,22 @@ body  {
     right: 2rem;
     bottom: 2rem;
 }
+
+input, select {
+    &.ng-invalid.ng-touched  {
+        border: 1px solid red;
+    }
+}
+
+
+form.ng-invalid.ng-touched {
+    border: none;
+}
+
+.form-control.ng-dirty.ng-valid.ng-touched {
+    border: 1px solid green;
+   // background-color: lighten(green, 25%);
+}
+input:-internal-autofill-selected {
+    background-color: transparent;
+}

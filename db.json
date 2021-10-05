@@ -2,27 +2,15 @@
   "employees": [
     {
       "key": null,
-      "fullname": "dsfsdfs",
+      "fullname": "edited",
       "email": "sdfs@SDFS.COM",
       "mobile": 34953495349593,
       "city": "HYDERBADD",
-      "gender": "1",
+      "gender": "Male",
       "department": 0,
       "hireDate": "",
       "isPerminant": false,
       "id": 1
-    },
-    {
-      "key": null,
-      "fullname": "sa",
-      "email": "sa@sa.com",
-      "mobile": 1234567890,
-      "city": "hyderabad",
-      "gender": "0",
-      "department": "react",
-      "hireDate": "2021-10-09",
-      "isPerminant": true,
-      "id": 2
     },
     {
       "key": null,
@@ -107,6 +95,18 @@
       "hireDate": "2021-10-22",
       "isPerminant": true,
       "id": 11
+    },
+    {
+      "key": null,
+      "fullname": "authonticate",
+      "email": "authonticate@gmail.com",
+      "mobile": 123456,
+      "city": "hyderabad",
+      "gender": "Male",
+      "department": "css",
+      "hireDate": "2021-10-08",
+      "isPerminant": true,
+      "id": 12
     }
   ]
 }

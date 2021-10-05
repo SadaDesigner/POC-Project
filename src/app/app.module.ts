@@ -25,11 +25,13 @@ import { EmployeeComponent } from './crud/employee/employee.component';
 import { CrudserviceService } from './crudservice.service';
 import { filterPipe } from './crud/filterpipe.pipe.';
 import { ToastComponent } from './shared/toast/toast.component';
-import { ToasterService } from './shared/toaster.service'
+import { ToasterService } from './shared/toaster.service';
+import { AuthonticateComponent } from './authonticate/authonticate.component';
+import { loadingSpinnerComponent } from './shared/loading-spinner/loadingspinner.component'
 
 
 
-@NgModule({
+@NgModule({ 
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -48,7 +50,9 @@ import { ToasterService } from './shared/toaster.service'
     CrudComponent,
     EmployeeComponent,
     filterPipe,
-    ToastComponent
+    ToastComponent,
+    AuthonticateComponent,
+    loadingSpinnerComponent
     
     
   ],
