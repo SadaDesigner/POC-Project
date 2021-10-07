@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, timestamp } from 'rxjs/operators';
 import { BehaviorSubject, Subject, throwError } from 'rxjs';
 import { User } from './user.model';
+import { Router } from '@angular/router';
 
 export interface authResponse {
   idToken: string;
@@ -16,8 +17,8 @@ export interface authResponse {
   providedIn: 'root',
 })
 export class AuthserviceService {
-  sendUserSub = new BehaviorSubject<User>(null);
-  constructor(private http: HttpClient) {}
+  sendUserSub = new Subject<User>();
+  constructor(private http: HttpClient, private route:Router) {}
 
   getErrorHandler(errorResponse: HttpErrorResponse) {
     let errorMessage = 'error occured';
@@ -52,6 +53,8 @@ export class AuthserviceService {
     );
     //console.log('response handleuser' + JSON.stringify(response))
     this.sendUserSub.next(user);
+    localStorage.setItem('userData', JSON.stringify(user))
+    this.autoLogout(+response.expiresIn * 1000)
   }
 
   loginuser(email: any, password: any) {
@@ -71,4 +74,57 @@ export class AuthserviceService {
       )
       .pipe(catchError(this.getErrorHandler), tap(this.handleUser.bind(this)));
   }
+
+  logoutUser() {
+    this.sendUserSub.next(null);
+    this.route.navigate(['/authonticate']);
+    localStorage.removeItem('userData')
+   
+  }
+
+  autoLogin() {
+    let userData: {
+      email: string;
+      _token: string;
+      localId: string;
+      expirationDate: string;
+  
+      
+    } = JSON.parse(localStorage.getItem('userData'))
+
+   
+    
+    let user = new User(
+      userData.email, 
+      userData._token, 
+      userData.localId,
+      new Date(userData.expirationDate)
+     
+    )
+    // if(!user) {
+    //   return;
+    // }
+
+ 
+  
+
+    if(user.token) {
+      this.sendUserSub.next(user)
+     
+    }
+
+   
+
+  }
+
+  autoLogout(expireDate) {
+    console.log(expireDate)
+    setTimeout(()=> {
+     this.logoutUser()
+    }, expireDate - 3540000)
+  }
+
+
+
+ 
 }

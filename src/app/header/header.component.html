@@ -23,6 +23,7 @@
 
     <button  *ngIf="!isAuthenticated"  class="btn btn-info mr-3" routerLink="/authonticate">Login / Signup</button> 
     <i class="color-info"  *ngIf="isAuthenticated">Welcome {{loggedUserInfo.email}}</i>
-   <button class="btn btn-info ml-3" routerLink="/"  *ngIf="isAuthenticated">Logout</button>  
+   <button class="btn btn-info ml-3" (click)="authLogout()"  *ngIf="isAuthenticated">Logout</button>  
 
   </div>
+

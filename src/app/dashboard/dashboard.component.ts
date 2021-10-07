@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { interval, Subscription } from 'rxjs';
 import { ToasterService } from '../shared/toaster.service';
+import { AuthserviceService } from '../authonticate/authservice.service';
 
 
 @Component({
@@ -13,7 +14,12 @@ import { ToasterService } from '../shared/toaster.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(public dataservice: MydataService, private route: Router, private ac: ActivatedRoute, public ts:ToasterService) { }
+  constructor(public dataservice: MydataService,
+     private route: Router,
+     private ac: ActivatedRoute,
+     public ts:ToasterService,
+     private authservice: AuthserviceService
+     ) { }
 
   @ViewChild('admin') admincomp: AdminComponent;
   showBulkActions: boolean = false;
@@ -25,7 +31,8 @@ export class DashboardComponent implements OnInit {
   searchTextBox: any;
   showDivOne: boolean = false;
   errmsg: boolean = false;
-  todolist: any = []
+  todolist: any = [];
+  isLoading: boolean = false;
 
 
 
@@ -118,9 +125,10 @@ export class DashboardComponent implements OnInit {
 
 
 
-
   ngOnInit() {
-
+    this.isLoading = true;
+  
+ 
     this.ac.data.subscribe((data) => {
       console.log('routing data' + data.name)
     });
@@ -130,8 +138,11 @@ export class DashboardComponent implements OnInit {
 
 
     //this.dataservice.getdata().subscribe(data => this.todolist = data);
+
     this.dataservice.getdata().subscribe(data => {
+      this.isLoading = false;
       this.dataservice.todolist = data;
+
     },
       (err) => {
         console.log('error', err)

@@ -10,7 +10,7 @@ import { authResponse, AuthserviceService } from './authservice.service';
   styleUrls: ['./authonticate.component.scss'],
 })
 export class AuthonticateComponent implements OnInit {
-  constructor(private authservice: AuthserviceService, public route: Router) {}
+  constructor(public authservice: AuthserviceService, public route: Router) {}
 
   islogin: boolean = true;
   isLoading: boolean = false;
@@ -54,6 +54,7 @@ export class AuthonticateComponent implements OnInit {
       }
     );
   }
+
 
   ngOnInit(): void {}
 }

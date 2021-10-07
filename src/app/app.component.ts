@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { AuthserviceService } from './authonticate/authservice.service';
 import { MydataService } from './mydata.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { MydataService } from './mydata.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  constructor(private dataservice: MydataService) { }
+  constructor(private dataservice: MydataService, private authservice:AuthserviceService) { }
   applicationname = 'Sample Project';
   isFluid: boolean = false;
   showDataInApp: any = false;
@@ -25,8 +26,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
     //  this.isloginshow = this.dataservice.islogin
 
+    this.authservice.autoLogin()
+
+  
   }
   ngOnDestroy() {
     this.showDataSubscription.unsubscribe()
+    
   }
 }

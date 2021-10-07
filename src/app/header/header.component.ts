@@ -44,6 +44,10 @@ export class HeaderComponent implements OnInit {
   })
   
   }
+  authLogout () {
+    this.authservice.logoutUser()
+  }
+
 
 
   ngOnInit(): void {
@@ -54,11 +58,13 @@ export class HeaderComponent implements OnInit {
     this.authservice.sendUserSub.subscribe((user) => {
       this.isAuthenticated = user ? true : false;
       this.loggedUserInfo = user;
-        console.log('header user ' + JSON.stringify(user))
-    })
-       
 
-  
+     
+    
+      
+    })
+
+    
 
 
     }
