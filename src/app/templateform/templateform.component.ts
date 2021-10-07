@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Users } from '../model';
 import { environment } from '../../environments/environment'
+import { AuthserviceService } from '../authonticate/authservice.service';
+import {ChangeDetectorRef } from '@angular/core';
 
 
 @Component({
@@ -16,7 +18,7 @@ export class TemplateformComponent implements OnInit, AfterViewInit {
   @ViewChild('scrollTable') scrollTable: ElementRef
 
   @ViewChild('myform') signUpForm: NgForm;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authservice:AuthserviceService, private change:ChangeDetectorRef) { }
 
 
 
@@ -83,12 +85,26 @@ export class TemplateformComponent implements OnInit, AfterViewInit {
 
   }
   url = environment.url;
+  userInfo:any;
   reactFormSubmit() {
     // console.log(this.reactsignup)
 
+    //getting auth informatoin
+
+    this.authservice.sendUserSub.subscribe((user) => {
+      console.log('cpipe user resonse from subect' + JSON.stringify(user) )
+      this.userInfo = user;
+    })
+
+
+    let cusomparam =  new HttpParams()
+    cusomparam = cusomparam.append('customtoken', 'two')
     const postData = this.reactsignup.value
-    this.http.post<Users[]>(this.url, postData).subscribe((response) => {
-      console.log('resut' + response)
+    this.http.post<Users[]>(this.url, postData,
+      {
+        params: cusomparam
+      }).subscribe((response) => {
+      console.log('result' + JSON.stringify(response) + JSON.stringify(this.userInfo) )
     },
 
       (error) => {
@@ -171,7 +187,7 @@ export class TemplateformComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
 
     this.elementHeight = this.scrollTable.nativeElement.getBoundingClientRect().height
-
+    this.change.detectChanges();
   }
 
 }

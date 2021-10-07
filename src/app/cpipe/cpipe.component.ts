@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AuthserviceService } from '../authonticate/authservice.service';
 import { MydataService } from '../mydata.service';
 
 
@@ -9,7 +10,7 @@ import { MydataService } from '../mydata.service';
 })
 export class CpipeComponent implements OnInit {
 
-  constructor(public dataservice: MydataService,) { }
+  constructor(public dataservice: MydataService, public authservice:AuthserviceService) { }
   
   @Output() mycustomevent = new EventEmitter()
 
@@ -44,6 +45,10 @@ export class CpipeComponent implements OnInit {
 
   addList() {
     this.list.push({name:'Chitavake', role:'school', joinDate:new Date()})
+    this.authservice.sendUserSub.subscribe((user) => {
+      console.log('cpipe user resonse from subect' + JSON.stringify(user) )
+    })
+
   }
 
   //async pipe practise with promise

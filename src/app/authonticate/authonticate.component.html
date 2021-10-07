@@ -1,5 +1,5 @@
 <p>authonticate works!</p>
-<p *ngIf="isLoggedIn">Welcome: <i>{{loggedUserName}}</i></p>
+
 <div class="alert alert-danger" *ngIf="errorShow">
     {{errorShow}}
 </div>
@@ -7,8 +7,8 @@
     <app-loading-spinner></app-loading-spinner>
 </div>
 
-<ng-container *ngIf="!isLoggedIn">
-    <h4 *ngIf="!isLoggedIn">{{islogin ? 'Login' : 'Signup'}}</h4>
+
+  
     <form  #authform="ngForm" (ngSubmit)="authformSubmit(authform.value)" *ngIf="!isLoading">
         <div class="row">
             <div class="col-12">
@@ -16,7 +16,7 @@
                 
                         <label for="">Email</label>
                         <input type="text" class="form-control" ngModel name="email" required>
-                        <span class="text-danger" *ngIf="authform.controls.email.touched && authform.controls.email.invalid">Please fill the field</span>
+                        <!-- <span class="text-danger" *ngIf="authform.controls.email.touched && authform.controls.email.invalid">Please fill the field</span> -->
               
                 </div>
             
@@ -24,7 +24,7 @@
            
                         <label for="">Password</label>
                         <input type="password" class="form-control" ngModel name="password" required minlength="6">
-                        <span class="text-danger" *ngIf="authform.controls.password.touched && authform.controls.password.invalid">Please fill the field</span>
+                        <!-- <span class="text-danger" *ngIf="authform.controls.password.touched && authform.controls.password.invalid">Please fill the field</span> -->
                   
                  
                 </div>
@@ -33,9 +33,9 @@
        
         <div class="row">
             <div class="col-12">
-                <button type="Submit" [disabled]="!authform.valid"  class="btn btn-info mr-3">{{islogin ? 'login' : 'signup'}}</button>
-                <button (click)="switchtoggle()" type="Button"  class="btn btn-info">{{islogin ? 'goto signup' : 'goto login'}}</button>
+                <button type="Submit" [disabled]="!authform.valid"  class="btn btn-info mr-5">{{islogin ? 'login' : 'signup'}}</button>
+                <label *ngIf="islogin" style="font-size: 14px;">Not yet Registerd ?  </label><button class="pl-1" (click)="switchtoggle()" type="Button"  class="btn btn-info">{{islogin ? 'signup now' : 'back to login'}}</button>
             </div>
         </div>
     </form>
-</ng-container>
+

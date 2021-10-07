@@ -27,7 +27,8 @@ import { filterPipe } from './crud/filterpipe.pipe.';
 import { ToastComponent } from './shared/toast/toast.component';
 import { ToasterService } from './shared/toaster.service';
 import { AuthonticateComponent } from './authonticate/authonticate.component';
-import { loadingSpinnerComponent } from './shared/loading-spinner/loadingspinner.component'
+import { loadingSpinnerComponent } from './shared/loading-spinner/loadingspinner.component';
+
 
 
 

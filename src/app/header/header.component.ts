@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BehaviorSubject, interval, ObjectUnsubscribedError, Observable, observable, of, Subject } from 'rxjs';
+import { authResponse, AuthserviceService } from '../authonticate/authservice.service';
+import { User } from '../authonticate/user.model';
 import { MydataService } from '../mydata.service';
 
 @Component({
@@ -10,12 +12,16 @@ import { MydataService } from '../mydata.service';
 export class HeaderComponent implements OnInit {
   @Input ('aname') myappname:any;
 
-  constructor(private dataservice: MydataService) { }
+  constructor(private dataservice: MydataService, private authservice:AuthserviceService) { }
 
-  username: string = "";
+  username: string = ""; 
+  isAuthenticated: boolean = false;
+  loggedUserInfo: User;
+
 
   getusername() {
   this.username = prompt('enter username')
+  
   }
 
   isloginshow: boolean = false
@@ -44,7 +50,14 @@ export class HeaderComponent implements OnInit {
     this.isloginsubsribe()
 
 
+    //user data coming from authservice using subject
+    this.authservice.sendUserSub.subscribe((user) => {
+      this.isAuthenticated = user ? true : false;
+      this.loggedUserInfo = user;
+        console.log('header user ' + JSON.stringify(user))
+    })
        
+
   
 
 
