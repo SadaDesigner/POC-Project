@@ -17,7 +17,7 @@ export interface authResponse {
   providedIn: 'root',
 })
 export class AuthserviceService {
-  sendUserSub = new Subject<User>();
+  sendUserSub = new BehaviorSubject<User>(null);
   constructor(private http: HttpClient, private route:Router) {}
 
   getErrorHandler(errorResponse: HttpErrorResponse) {
