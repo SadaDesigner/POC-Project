@@ -74,7 +74,7 @@ getuser() {
   return this.http.get(this.url)
 }
 postuser(user) {
-  debugger;
+
   return this.http.post(this.url, user)
 }
 

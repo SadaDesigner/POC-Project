@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AuthserviceService } from './authonticate/authservice.service';
 import { MydataService } from './mydata.service';
 
@@ -27,6 +27,28 @@ export class AppComponent implements OnInit, OnDestroy {
     //  this.isloginshow = this.dataservice.islogin
 
     this.authservice.autoLogin()
+
+
+    //promise practise
+
+    // let mypromise = new Promise(resolve => {
+    //   console.log('welcome promise')
+    //   resolve('welcomepromise again')
+    // })
+
+    // mypromise.then(resolve => {
+    //   console.log('resolve ' + resolve)
+    // })
+
+
+    let myobs = new Observable(observer => {
+     
+     
+    })
+
+    myobs.subscribe(data =>{
+      console.log('start name:  ' + data)
+    })
 
   
   }

@@ -10,7 +10,7 @@ export class ToasterService {
   msg:string;
   showToast: boolean = false;
   getToster(toastType, toastMsg) {
-    debugger;
+  
     this.type = toastType;
     this.msg = toastMsg
   //  this.showToast = true;

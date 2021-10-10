@@ -102,7 +102,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.mysub.unsubscribe();
+    //this.mysub.unsubscribe();
     
     
     console.log('ng destroy works')

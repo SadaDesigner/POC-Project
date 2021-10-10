@@ -30,7 +30,7 @@ export class AuthonticateComponent implements OnInit {
       authObs = this.authservice.postuserdetails(
         authform.email,
         authform.password
-      );
+      )
 
       // console.log('authform' + JSON.stringify(authform.email))
     }

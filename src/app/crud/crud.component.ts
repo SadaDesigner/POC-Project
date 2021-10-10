@@ -37,7 +37,7 @@ gridsearch: string ='';
     (error) => {
       //console.log('error ' + JSON.stringify(error.message))
       if(error) {
-        debugger
+      
         this.employeelistErrorMsgShow = true;
         this.employeelistErrorMsg = error.message;
         console.log('error msg ' + this.employeelistErrorMsg)

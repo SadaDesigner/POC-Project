@@ -15,20 +15,21 @@ import { AuthonticateComponent } from './authonticate/authonticate.component';
 const routes: Routes = [
   {path : '', redirectTo: '/dashboard', pathMatch: 'full'},
   {path : 'dashboard', component: DashboardComponent, data:{name:' sadashiv', age: 32}},
-  {path : 'settings', component: SettingsComponent, data: {name: 'sadashiv', role:'ui developer'}},
-  {path : 'admin', component: AdminComponent, canActivate: [myGuard]},
-  {path : 'admin/:title', component: AdminComponent}, 
-  {path : 'chirp', component: ChirpComponent},
-  {path : 'dashboard/postdetails/:id', component: PostDetailsComponent},
-  {path:  'not-found', component: NotfoundComponent },
-  {path: 'template-form', component: TemplateformComponent},
-  {path: 'mycrud', component:CrudComponent},
-  {path: 'addemployee', component: EmployeeComponent},
   {path: 'authonticate', component: AuthonticateComponent},
-  {path:  '**', redirectTo: 'not-found'}
+   //{path:  '**', redirectTo: 'not-found'},
 
- 
- 
+  {path: '', canActivate: [myGuard], children:[
+  
+    {path : 'settings', component: SettingsComponent, data: {name: 'sadashiv', role:'ui developer'}},
+    {path : 'admin', component: AdminComponent},
+    {path : 'admin/:title', component: AdminComponent}, 
+    {path : 'chirp', component: ChirpComponent},
+    {path : 'dashboard/postdetails/:id', component: PostDetailsComponent},
+    {path:  'not-found', component: NotfoundComponent },
+    {path: 'template-form', component: TemplateformComponent},
+    {path: 'mycrud', component:CrudComponent},
+    {path: 'addemployee', component: EmployeeComponent},
+  ]}
 ]
 
 

@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { interval, Subscription } from 'rxjs';
 import { ToasterService } from '../shared/toaster.service';
 import { AuthserviceService } from '../authonticate/authservice.service';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -129,9 +130,22 @@ export class DashboardComponent implements OnInit {
     this.isLoading = true;
   
  
-    this.ac.data.subscribe((data) => {
-      console.log('routing data' + data.name)
-    });
+    // this.ac.data.subscribe((data) => {
+    //   console.log('routing data' + data.name)
+    // });
+
+    this.ac.data
+    .pipe(map(data => {
+     if(true) {
+   
+        return data.name.substring(0,1)
+     }
+    }))
+
+    .subscribe(data => {
+      console.log('check' + data.name)
+    })
+
 
 
 
