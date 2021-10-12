@@ -41,14 +41,14 @@ export class AppComponent implements OnInit, OnDestroy {
     // })
 
 
-    let myobs = new Observable(observer => {
+    // let myobs = new Observable(observer => {
      
-     
-    })
+    //   observer.next('welcome observable')
+    // })
 
-    myobs.subscribe(data =>{
-      console.log('start name:  ' + data)
-    })
+    // myobs.subscribe(data =>{
+    //   console.log('start name:  ' + data)
+    // })
 
   
   }

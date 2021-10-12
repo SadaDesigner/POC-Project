@@ -31,6 +31,19 @@ export class ChirpComponent implements OnInit {
   mynamefromsettings:any; 
 
 
+  
+  public result:any;
+  names:any;
+  country_url:any =  'https://jsonplaceholder.typicode.com/users'
+  myvalue:string;
+
+// getcountrylist(cvalue) {
+//  // this.myvalue = cvalue;
+//    this.http.get(this.country_url).toPromise().then(data => {
+//     this.result.push(data)
+//   })
+// }
+
 listheading = ''
   get checkHeading() {
     return this.listheading != ""
@@ -38,10 +51,30 @@ listheading = ''
 
   ngOnInit(): void { 
 
+    let mypromise = new Promise(resolve => {
+      console.log('promise is running by default')
+      resolve('promise running after then')
+      resolve('second resolve wont work')// wont' work, promise supports only one valuve
+      resolve('second resolve wont work')// wont work
+    })
+    mypromise.then(data => {
+      console.log('promise result' + data)
+    })
+
+    
     this.ac.queryParams.subscribe((response) => {
       this.mynamefromsettings = response
 
     })
+
+     // this.myvalue = cvalue;
+  //  this.http.get(this.country_url).toPromise().then(data => {
+  //   console.log('first' + data)
+  //   console.log('second' + data)
+
+  // })
+
+    
   }
 
 }
