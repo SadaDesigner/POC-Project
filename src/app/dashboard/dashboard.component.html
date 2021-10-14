@@ -10,7 +10,11 @@
   </div>
 </div>
 
-<input type="text" [(ngModel)]="searchTextBox">
+<div class="row mb-2">
+  <div class="col-4"><input type="text" [(ngModel)]="searchTextBox" class="form-control"></div>
+</div>
+
+
 
 {{searchTextBox}}
 <div *ngIf="isLoading" class="text-center">
@@ -18,7 +22,9 @@
 </div>
 
 <div class="table-responsive grid-scroll">
-  <table class="table table-striped table-bordered">
+
+
+  <table class="table table-bordered">
     <tbody>
         <tr>
           <th class="text-center"> <input type="checkbox"></th>
@@ -66,6 +72,6 @@
 <button class="btn btn-primary" routerLink="postdetails/4" [queryParams]="employeedetails">goto details</button>
 
 
-<button (click)="datashowInApp()">data show in app</button>
+<button class="btn btn-info ml-3" (click)="datashowInApp()">data show in app</button>
 
 

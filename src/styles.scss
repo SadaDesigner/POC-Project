@@ -1,7 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --switchmode-primary: #ffffff;
+  --switchmode-font-color: #111111;
+  --secondary: #ffffff;
+  --border: #ced4da;
+
+  --color-h: 256; /* Hue        */
+  --color-s: 256%; /* Saturation */
+  --color-l: 256%; /* Lightness  */
+}
+
+.dark-mode {
+  --switchmode-primary: #242424;
+  --switchmode-font-color: #ffffff;
+  --secondary: #ffffff;
+  --border: #747474;
+
+  --color-h: 000; /* Hue        */
+  --color-s: 0%; /* Saturation */
+  --color-l: 0%; /* Lightness  */
+}
+
 .grid-scroll {
-    height: 400px;
-    overflow: auto;
+  height: 400px;
+  overflow: auto;
+}
+nav {
+  a {
+    color: var(--switchmode-font-color);
+    &:hover {
+      color: var(--switchmode-font-color);
+    }
+  }
+}
+
+.color-info {
+  opacity: 0.4;
+}
+
+.table {
+  color: var(--switchmode-font-color);
 }
 
 // @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap');
@@ -10,40 +49,79 @@
 //     font-family: 'JetBrains Mono', monospace;
 // }
 
-body  {
-    font-family: 'Montserrat', sans-serif;
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--switchmode-primary);
+  color: var(--switchmode-font-color);
 }
-
-.circle {
-    width: 28px;
-    height: 28px;
-    background-color: blue;
-    border-radius: 50px;
-    margin-right: 1rem;
+.header {
+  //background-color: var(--switchmode-primary, );
+  background-color: hsla(var(--color-h), var(--color-s), var(--color-l), 0.3);
+  color: var(--switchmode-font-color);
+  border-bottom-color: var(--border) !important;
 }
 
 .toast {
-    opacity: 1;
-    position: fixed;
-    right: 2rem;
-    bottom: 2rem;
+  .toast-header {
+    background-color: hsla(var(--color-h), var(--color-s), var(--color-l), 0.9);
+    color: var(--switchmode-font-color);
+  }
+  .toast-body {
+    background-color: hsla(var(--color-h), var(--color-s), var(--color-l), 0.7);
+    color: var(--switchmode-font-color);
+  }
 }
 
-input, select {
-    &.ng-invalid.ng-touched  {
-        border: 1px solid red;
-    }
+.table-bordered td,
+.table-bordered th {
+  border-color: var(--border);
+}
+.form-control {
+  border-color: var(--border);
+  color: var(--switchmode-font-color);
+  background-color: hsla(var(--color-h), var(--color-s), var(--color-l), 0.1);
+  &:focus {
+    background-color: hsla(var(--color-h), var(--color-s), var(--color-l), 0.4);
+  }
+}
+.circle {
+  width: 28px;
+  height: 28px;
+  background-color: blue;
+  border-radius: 50px;
+  margin-right: 1rem;
 }
 
+.toast {
+  opacity: 1;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+}
+
+input,
+select {
+  &.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+}
 
 form.ng-invalid.ng-touched {
-    border: none;
+  border: none;
 }
 
 .form-control.ng-dirty.ng-valid.ng-touched {
-    border: 1px solid green;
-   // background-color: lighten(green, 25%);
+  border: 1px solid green;
+  // background-color: lighten(green, 25%);
 }
 input:-internal-autofill-selected {
-    background-color: transparent;
+  background-color: transparent;
+}
+
+.list-group-item {
+  background-color: hsla(var(--color-h), var(--color-s), var(--color-l), 0.2);
+}
+
+input:-internal-autofill-selected {
+  background-color: hsla(var(--color-h), var(--color-s), var(--color-l), 0.3) !important;
 }

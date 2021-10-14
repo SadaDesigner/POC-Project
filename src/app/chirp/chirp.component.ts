@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnDestroy, OnInit, } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { MydataService } from '../mydata.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { MydataService } from '../mydata.service';
   templateUrl: './chirp.component.html',
   styleUrls: ['./chirp.component.scss']
 })
-export class ChirpComponent implements OnInit {
+export class ChirpComponent implements OnInit{
 
   searchAirport:string;
   airportList: any = [];
@@ -48,7 +50,7 @@ listheading = ''
   get checkHeading() {
     return this.listheading != ""
   }
-
+ getnames:any= new Observable()
   ngOnInit(): void { 
 
     let mypromise = new Promise(resolve => {
@@ -67,14 +69,28 @@ listheading = ''
 
     })
 
-     // this.myvalue = cvalue;
-  //  this.http.get(this.country_url).toPromise().then(data => {
-  //   console.log('first' + data)
-  //   console.log('second' + data)
+     //this.myvalue = cvalue;
 
-  // })
+    //getdata http data using  promise
+      // this.http.get(this.country_url).toPromise().then(data => {
+      //   this.result = data;
+
+      // })
+
+        //getdata http data using  promise
+        this.getnames = this.http.get(this.country_url)
+        // .pipe(map(data=>{
+        //     return data.map(da=> 
+        //       ({name:da.name}))
+        // }))
+        .subscribe(data=> {
+          this.result = data;
+            console.log(JSON.stringify(data))
+        })
 
     
   }
+
+
 
 }

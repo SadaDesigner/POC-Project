@@ -1,29 +1,54 @@
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-normal">{{myappname}}</h5>
- 
-    <nav class="my-2 my-md-0 mr-md-3" *ngIf="isAuthenticated">
-      <a class="p-2 text-dark" routerLink="/dashboard">Home</a>
-      <a class="p-2 text-dark" routerLink="/admin">Admin</a>
-      <a class="p-2 text-dark" routerLink="/settings">Settings</a>
-      <a class="p-2 text-dark" routerLink="/chirp">Chirp</a>
-      <a class="p-2 text-dark" routerLink="/template-form">Template Form</a>
-      <a class="p-2 text-dark" routerLink="/mycrud">crud</a>
-
-      <!-- <a class="p-2 text-dark" routerLink="/authonticate" *ngIf="!isAuthenticated">Login/Signup</a>
-
-      <a class="p-2 text-dark" routerLink="/">Logout</a> -->
-      
-     
-    </nav>
-
-    <!-- <a class="btn btn-outline-primary" (click)="getusername()" href="#">Sign In</a>
-    <a class="btn btn-outline-primary" href="#">Sign up</a>
-
-    {{username}} -->
-
-    <button  *ngIf="!isAuthenticated"  class="btn btn-info mr-3" routerLink="/authonticate">Login / Signup</button> 
-    <i class="color-info"  *ngIf="isAuthenticated">Welcome {{loggedUserInfo.email}}</i>
-   <button class="btn btn-info ml-3" (click)="authLogout()"  *ngIf="isAuthenticated">Logout</button>  
-
+<div
+  class="
+    header
+    d-flex
+    flex-column flex-md-row
+    align-items-center
+    p-3
+    px-md-4
+    mb-3
+    border-bottom
+    shadow-sm
+    justify-content-between
+  "
+>
+  <div class="d-flex align-items-center">
+    <h5 class="my-0 mr-md-auto font-weight-normal">{{ myappname }}</h5>
+    <button #switchElement id="switch-color" (click)="switchmode(switchElement)" class="btn btn-info ml-3">
+      switch to dark
+    </button>
   </div>
 
+  <div class="d-flex align-items-center">
+    <nav class="my-2 my-md-0 mr-md-3" *ngIf="isAuthenticated">
+      <a class="p-2" routerLink="/dashboard">Home</a>
+      <a class="p-2" routerLink="/admin">Admin</a>
+      <a class="p-2" routerLink="/settings">Settings</a>
+      <a class="p-2" routerLink="/chirp">Chirp</a>
+      <a class="p-2" routerLink="/template-form">Template Form</a>
+      <a class="p-2" routerLink="/mycrud">crud</a>
+
+      <!-- <a class="p-2" routerLink="/authonticate" *ngIf="!isAuthenticated">Login/Signup</a>
+
+      <a class="p-2" routerLink="/">Logout</a> -->
+    </nav>
+
+    <button
+      *ngIf="!isAuthenticated"
+      class="btn btn-info mr-3"
+      routerLink="/authonticate"
+    >
+      Login / Signup
+    </button>
+    <i class="color-info" *ngIf="isAuthenticated"
+      >Welcome {{ loggedUserInfo.email }}</i
+    >
+    <button
+      class="btn btn-info ml-3"
+      (click)="authLogout()"
+      *ngIf="isAuthenticated"
+    >
+      Logout
+    </button>
+  </div>
+</div>

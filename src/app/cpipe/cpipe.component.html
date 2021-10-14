@@ -2,7 +2,7 @@
 
 <ul class="list-group">
     <label for="">Change Truncate number</label>
-    <input type="text"[(ngModel)]="helo">
+    <input type="text"[(ngModel)]="helo" class="form-control">
     <!-- <input type="text" class="form-control col-md-3 mb-2" [(ngModel)]="para" value="4"> -->
     <li class="list-group-item" *ngFor="let myname of list | filters:helo">
         <div class="row">
@@ -12,7 +12,7 @@
             </div>
         </li>
 
-        <button class="btn btn-success w-25" (click)="addList()">Add User</button>
+        <button class="btn btn-success w-25 mt-3" (click)="addList()">Add User</button>
         <h4>promise</h4>
         {{mypromise | async}}
 </ul>

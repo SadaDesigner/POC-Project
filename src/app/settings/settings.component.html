@@ -6,7 +6,7 @@
   <div class="col-6">
     <h3>Api call with search </h3>
     <div class="form-group d-flex">
-      <input class="form-control col-6" type="text"[(ngModel)]="searchString">   <button class="btn btn-primary" (click)="getdata()">search</button>
+      <input class="form-control col-6" type="text"[(ngModel)]="searchString">   <button class="btn btn-primary ml-3" (click)="getdata()">search</button>
     </div>
 
   <ul class="list-group flex-wrap flex-row">
@@ -27,7 +27,7 @@
 <app-cpipe (mycustomevent)="sendoutput($event)"></app-cpipe>
 
 <input type="text" [(ngModel)]="sendmyname.name">
-<button class="btn btn-info mt-3" routerLink="/chirp" [queryParams]="sendmyname">go to chirp</button>
+<button class="btn btn-info mt-3 form-control" routerLink="/chirp" [queryParams]="sendmyname">go to chirp</button>
 
 
 

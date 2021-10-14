@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit {
   errmsg: boolean = false;
   todolist: any = [];
   isLoading: boolean = false;
+  childElementValue: string =  'value coming from child component'
 
 
 

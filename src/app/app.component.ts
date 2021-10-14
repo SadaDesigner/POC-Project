@@ -10,7 +10,7 @@ import { MydataService } from './mydata.service';
 })
 export class AppComponent implements OnInit, OnDestroy {
   constructor(private dataservice: MydataService, private authservice:AuthserviceService) { }
-  applicationname = 'Sample Project';
+  applicationname = 'My Project';
   isFluid: boolean = false;
   showDataInApp: any = false;
   showDataSubscription: Subscription;

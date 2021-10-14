@@ -17,6 +17,7 @@ export class EmployeeComponent implements OnInit {
 
   @Input('employeelist') employeelist:any;
   @Input('employee') employee:any;
+  
  
 
 
