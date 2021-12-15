@@ -1,5 +1,5 @@
 <main class="">
-<app-header [aname]="applicationname">
+<app-header (sendkid)="gettingkidname($event)" [headerDate]="mydate" [aname]="applicationname" (sendchild)=recievedata($event)>
 
 </app-header>
 
@@ -14,7 +14,8 @@
 
 <div *ngIf="showDataInApp">data showing from dashboard component</div>
 
-
+{{recievedData}}
+{{mykidname}}
 
 <app-toast ></app-toast>
 

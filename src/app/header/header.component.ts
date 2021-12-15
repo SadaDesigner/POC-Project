@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {
   BehaviorSubject,
   interval,
@@ -22,6 +22,9 @@ import { MydataService } from '../mydata.service';
 })
 export class HeaderComponent implements OnInit {
   @Input('aname') myappname: any;
+  @Output() sendchild = new EventEmitter();
+  @Input('headerDate') myhdate: Date;
+  @Output() sendkid = new EventEmitter();
 
   constructor(
     private dataservice: MydataService,
@@ -31,6 +34,9 @@ export class HeaderComponent implements OnInit {
   username: string = '';
   isAuthenticated: boolean = false;
   loggedUserInfo: User;
+  kidname: string = 'shanvika';
+
+  childdata: string = 'sadashiv bachuwar'
 
   getusername() {
     this.username = prompt('enter username');
@@ -84,6 +90,8 @@ export class HeaderComponent implements OnInit {
     // document.getElementById('idOfElement').className = 'newClassName';
   }
 
+
+
   ngOnInit(): void {
     this.isloginsubsribe();
 
@@ -92,5 +100,7 @@ export class HeaderComponent implements OnInit {
       this.isAuthenticated = user ? true : false;
       this.loggedUserInfo = user;
     });
+    this.sendchild.emit(this.childdata)
+    this.sendkid.emit(this.kidname)
   }
 }

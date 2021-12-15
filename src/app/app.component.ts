@@ -16,6 +16,17 @@ export class AppComponent implements OnInit, OnDestroy {
   showDataSubscription: Subscription;
   isloginshow: boolean;
   truncatevalue: string = "hello friends how are you all"
+  recievedData: string;
+  mydate = new Date().toDateString();
+  mykidname:string;
+  
+  recievedata(event) {
+    this.recievedData = event
+  }
+
+  gettingkidname(res) {
+    this.mykidname = res;
+  }
 
   ngOnInit() {
     this.showDataSubscription = this.dataservice.showingdataApp.subscribe(
